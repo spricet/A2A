@@ -1,5 +1,4 @@
-// edition = "2023";
-syntax = "proto3";
+edition = "2023";
 package a2a.v1;
 
 import "google/api/annotations.proto";

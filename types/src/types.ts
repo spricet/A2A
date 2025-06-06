@@ -745,7 +745,7 @@ export interface SendStreamingMessageRequest extends JSONRPCRequest {
   method: "message/stream";
   params: MessageSendParams;
 }
-// --8<-- [end:SendStreamSetingMessageRequest]
+// --8<-- [end:SendStreamingMessageRequest]
 
 // --8<-- [start:SendStreamingMessageSuccessResponse]
 /**
@@ -880,7 +880,7 @@ export interface GetTaskPushNotificationConfigRequest extends JSONRPCRequest {
  */
 export interface GetTaskPushNotificationConfigSuccessResponse
   extends JSONRPCSuccessResponse {
-  /** The result object on success.*/
+  /** The result object on success. */
   result: TaskPushNotificationConfig[];
 }
 // --8<-- [end:GetTaskPushNotificationConfigSuccessResponse]

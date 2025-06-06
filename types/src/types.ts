@@ -92,7 +92,7 @@ export interface AgentSkill {
  */
 export interface AgentCard {
   /**
-   * Universally Unique identifier for the agent. 
+   * Universally Unique identifier for the agent.
    * @pattern ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
    */
   id: string;

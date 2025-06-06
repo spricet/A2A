@@ -92,6 +92,11 @@ export interface AgentSkill {
  */
 export interface AgentCard {
   /**
+   * Universally Unique identifier for the agent. 
+   * @pattern ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
+   */
+  id: string;
+  /**
    * Human readable name of the agent.
    * @example "Recipe Agent"
    */
@@ -880,8 +885,8 @@ export interface GetTaskPushNotificationConfigRequest extends JSONRPCRequest {
  */
 export interface GetTaskPushNotificationConfigSuccessResponse
   extends JSONRPCSuccessResponse {
-  /** The result object on success. */
-  result: TaskPushNotificationConfig;
+  /** The result object on success.*/
+  result: TaskPushNotificationConfig[];
 }
 // --8<-- [end:GetTaskPushNotificationConfigSuccessResponse]
 

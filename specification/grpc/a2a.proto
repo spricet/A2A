@@ -356,6 +356,8 @@ message AgentCard {
   // the user is authenticated, i.e. is the card from .well-known
   // different than the card from GetAgentCard.
   bool supports_authenticated_extended_card = 13;
+  // A unique identifier for the agent.
+  string id = 14;
 }
 
 // Represents information about the service provider of an agent.

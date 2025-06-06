@@ -154,6 +154,11 @@
                     "description": "A URL to an icon for the agent.",
                     "type": "string"
                 },
+                "id": {
+                    "description": "Universally Unique identifier for the agent.",
+                    "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+                    "type": "string"
+                },
                 "name": {
                     "description": "Human readable name of the agent.",
                     "type": "string"
@@ -207,6 +212,7 @@
                 "defaultInputModes",
                 "defaultOutputModes",
                 "description",
+                "id",
                 "name",
                 "skills",
                 "url",
@@ -674,8 +680,11 @@
                     "type": "string"
                 },
                 "result": {
-                    "$ref": "#/definitions/TaskPushNotificationConfig",
-                    "description": "The result object on success."
+                    "description": "The result object on success.",
+                    "items": {
+                        "$ref": "#/definitions/TaskPushNotificationConfig"
+                    },
+                    "type": "array"
                 }
             },
             "required": [

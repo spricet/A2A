@@ -92,11 +92,6 @@ export interface AgentSkill {
  */
 export interface AgentCard {
   /**
-   * Universally Unique identifier for the agent.
-   * @pattern ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
-   */
-  id: string;
-  /**
    * Human readable name of the agent.
    * @example "Recipe Agent"
    */
@@ -750,7 +745,7 @@ export interface SendStreamingMessageRequest extends JSONRPCRequest {
   method: "message/stream";
   params: MessageSendParams;
 }
-// --8<-- [end:SendStreamingMessageRequest]
+// --8<-- [end:SendStreamSetingMessageRequest]
 
 // --8<-- [start:SendStreamingMessageSuccessResponse]
 /**

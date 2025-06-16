@@ -214,7 +214,6 @@
                 }
             },
             "required": [
-                "additionalInterfaces",
                 "capabilities",
                 "defaultInputModes",
                 "defaultOutputModes",

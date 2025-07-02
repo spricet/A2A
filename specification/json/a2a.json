@@ -2337,26 +2337,17 @@
             "type": "object"
         },
         "WellKnownUris": {
-            "properties": {
-                "AGENT_CARD": {
-                    "const": "/.well-known/agent.json",
-                    "default": "/.well-known/agent.json",
-                    "description": "The well-known URI at which an AgentCard should be hosted.",
-                    "type": "string"
-                },
-                "AUTHENTICATED_EXTENDED_AGENT_CARD": {
-                    "const": "/agent/authenticatedExtendedCard",
-                    "default": "/agent/authenticatedExtendedCard",
-                    "description": "The well-known URI at which an Authenticated Extended AgentCard should be hosted.",
-                    "type": "string"
-                }
-            },
-            "required": [
+            "title": "WellKnownUris",
+            "description": "Defines the well-known URIs used in the A2A protocol.",
+            "type": "string",
+            "enum": [
+                "/.well-known/agent.json",
+                "/agent/authenticatedExtendedCard"
+            ],
+            "x-enum-names": [
                 "AGENT_CARD",
                 "AUTHENTICATED_EXTENDED_AGENT_CARD"
-            ],
-            "type": "object"
+            ]
         }
     }
 }
-

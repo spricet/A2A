@@ -2344,7 +2344,7 @@
                 "/.well-known/agent.json",
                 "/agent/authenticatedExtendedCard"
             ],
-            "x-enum-names": [
+            "x-enum-varnames": [
                 "AGENT_CARD",
                 "AUTHENTICATED_EXTENDED_AGENT_CARD"
             ]

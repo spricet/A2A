@@ -6,17 +6,23 @@
  * Well-known URIs used in the A2A protocol.
  * https://datatracker.ietf.org/doc/html/rfc8615
  */
-export enum WellKnownUris {
+const WELL_KNOWN_URIS_VALUES = {
   /**
    * The well-known URI at which an AgentCard should be hosted.
    */
-  AGENT_CARD = "/.well-known/agent.json",
-
+  AGENT_CARD: "/.well-known/agent.json",
   /**
    * The well-known URI at which an Authenticated Extended AgentCard should be hosted.
    */
-  AUTHENTICATED_EXTENDED_AGENT_CARD = "/agent/authenticatedExtendedCard",
-}
+  AUTHENTICATED_EXTENDED_AGENT_CARD: "/agent/authenticatedExtendedCard",
+} as const;
+
+/**
+ * @title Well Known Uris
+ * @description Defines the well-known URIs used in the A2A protocol.
+ */
+export type WellKnownUris = typeof WELL_KNOWN_URIS_VALUES;
+
 
 // --8<-- [start:AgentProvider]
 /**

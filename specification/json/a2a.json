@@ -2337,12 +2337,25 @@
             "type": "object"
         },
         "WellKnownUris": {
-            "description": "Well-known URIs used in the A2A protocol.\nhttps://datatracker.ietf.org/doc/html/rfc8615",
-            "enum": [
-                "/.well-known/agent.json",
-                "/agent/authenticatedExtendedCard"
+            "properties": {
+                "AGENT_CARD": {
+                    "const": "/.well-known/agent.json",
+                    "default": "/.well-known/agent.json",
+                    "description": "The well-known URI at which an AgentCard should be hosted.",
+                    "type": "string"
+                },
+                "AUTHENTICATED_EXTENDED_AGENT_CARD": {
+                    "const": "/agent/authenticatedExtendedCard",
+                    "default": "/agent/authenticatedExtendedCard",
+                    "description": "The well-known URI at which an Authenticated Extended AgentCard should be hosted.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "AGENT_CARD",
+                "AUTHENTICATED_EXTENDED_AGENT_CARD"
             ],
-            "type": "string"
+            "type": "object"
         }
     }
 }

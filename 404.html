@@ -14,7 +14,7 @@
 
             if (redirected) {
                 sessionStorage.removeItem('redirected');
-                console.warn('Redirect loop detected. Stopping redirect.'); // Add this line
+                console.warn('Redirect loop detected. Stopping redirect.');
                 return;
             }
 
@@ -32,6 +32,8 @@
 
                 // Perform the redirect
                 window.location.replace(newPath + window.location.search + window.location.hash);
+            } else {
+                window.location.replace("https://a2aproject.github.io/A2A/");
             }
         })();
     </script>

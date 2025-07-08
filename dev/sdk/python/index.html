@@ -1926,15 +1926,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#a2a.types.AgentCard.protocolVersion" class="md-nav__link">
-    <span class="md-ellipsis">
-      protocolVersion
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#a2a.types.AgentCard.provider" class="md-nav__link">
     <span class="md-ellipsis">
       provider
@@ -6135,7 +6126,7 @@ underlying httpx.post request.</p>
 
 
 <h3 id="a2a.client.A2AClient.get_client_from_agent_card_url" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">get_client_from_agent_card_url</span><span class="p">(</span><span class="n">httpx_client</span><span class="p">,</span> <span class="n">base_url</span><span class="p">,</span> <span class="n">agent_card_path</span><span class="o">=</span><span class="n">AGENT_CARD_WELL_KNOWN_PATH</span><span class="p">,</span> <span class="n">http_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">get_client_from_agent_card_url</span><span class="p">(</span><span class="n">httpx_client</span><span class="p">,</span> <span class="n">base_url</span><span class="p">,</span> <span class="n">agent_card_path</span><span class="o">=</span><span class="s1">&#39;/.well-known/agent.json&#39;</span><span class="p">,</span> <span class="n">http_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
 
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-async"><code>async</code></small>
@@ -6210,7 +6201,7 @@ instantiated with it.</p>
               </div>
             </td>
             <td>
-                  <code><span title="a2a.utils.constants.AGENT_CARD_WELL_KNOWN_PATH">AGENT_CARD_WELL_KNOWN_PATH</span></code>
+                  <code>&#39;/.well-known/agent.json&#39;</code>
             </td>
           </tr>
           <tr class="doc-section-item">
@@ -9088,10 +9079,9 @@ Supported media types for input.</p>
 
 
 <h3 id="a2a.types.AgentCard.description" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">description</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">examples</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Agent that helps users with recipes and cooking.&#39;</span><span class="p">])</span></code>
+            <code class="highlight language-python"><span class="n">description</span></code>
 
   <span class="doc doc-labels">
-      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
       <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
   </span>
 
@@ -9158,10 +9148,9 @@ other agents in understanding what the agent can do.</p>
 
 
 <h3 id="a2a.types.AgentCard.name" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">name</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">examples</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Recipe Agent&#39;</span><span class="p">])</span></code>
+            <code class="highlight language-python"><span class="n">name</span></code>
 
   <span class="doc doc-labels">
-      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
       <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
   </span>
 
@@ -9194,29 +9183,6 @@ other agents in understanding what the agent can do.</p>
     <div class="doc doc-contents ">
 
         <p>The transport of the preferred endpoint. If empty, defaults to JSONRPC.</p>
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-attribute">
-
-
-
-<h3 id="a2a.types.AgentCard.protocolVersion" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">protocolVersion</span> <span class="o">=</span> <span class="s1">&#39;0.2.5&#39;</span></code>
-
-  <span class="doc doc-labels">
-      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
-      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
-  </span>
-
-<a href="#a2a.types.AgentCard.protocolVersion" class="headerlink" title="Permanent link">&para;</a></h3>
-
-
-    <div class="doc doc-contents ">
-
-        <p>The version of the A2A protocol this agent supports.</p>
 
     </div>
 
@@ -9365,10 +9331,9 @@ preferred endpoint as declared by the agent.</p>
 
 
 <h3 id="a2a.types.AgentCard.version" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">version</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">examples</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;1.0.0&#39;</span><span class="p">])</span></code>
+            <code class="highlight language-python"><span class="n">version</span></code>
 
   <span class="doc doc-labels">
-      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
       <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
   </span>
 
@@ -9771,7 +9736,7 @@ as a hint to understand what the skill does.</p>
 
 
 <h3 id="a2a.types.AgentSkill.examples" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">examples</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">examples</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;I need a recipe for bread&#39;</span><span class="p">]])</span></code>
+            <code class="highlight language-python"><span class="n">examples</span> <span class="o">=</span> <span class="kc">None</span></code>
 
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
@@ -9887,10 +9852,9 @@ Supported media types for input.</p>
 
 
 <h3 id="a2a.types.AgentSkill.tags" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">tags</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">examples</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;cooking&#39;</span><span class="p">,</span> <span class="s1">&#39;customer support&#39;</span><span class="p">,</span> <span class="s1">&#39;billing&#39;</span><span class="p">]])</span></code>
+            <code class="highlight language-python"><span class="n">tags</span></code>
 
   <span class="doc doc-labels">
-      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
       <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
   </span>
 
@@ -11975,7 +11939,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
     <div class="doc doc-contents ">
 
         <p>A Structured value that holds the parameter values to be used during the invocation of the method.
-TaskIdParams type is deprecated for this method use <code>GetTaskPushNotificationConfigParams</code> instead.</p>
+TaskIdParams type is deprecated for this method</p>
 
     </div>
 
@@ -13889,7 +13853,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><span title="pydantic.RootModel">RootModel</span>[<a class="autorefs autorefs-internal" title="JSONRPCErrorResponse (a2a.types.JSONRPCErrorResponse)" href="#a2a.types.JSONRPCErrorResponse">JSONRPCErrorResponse</a> | <a class="autorefs autorefs-internal" title="SendMessageSuccessResponse (a2a.types.SendMessageSuccessResponse)" href="#a2a.types.SendMessageSuccessResponse">SendMessageSuccessResponse</a> | <a class="autorefs autorefs-internal" title="SendStreamingMessageSuccessResponse (a2a.types.SendStreamingMessageSuccessResponse)" href="#a2a.types.SendStreamingMessageSuccessResponse">SendStreamingMessageSuccessResponse</a> | <a class="autorefs autorefs-internal" title="GetTaskSuccessResponse (a2a.types.GetTaskSuccessResponse)" href="#a2a.types.GetTaskSuccessResponse">GetTaskSuccessResponse</a> | <a class="autorefs autorefs-internal" title="CancelTaskSuccessResponse (a2a.types.CancelTaskSuccessResponse)" href="#a2a.types.CancelTaskSuccessResponse">CancelTaskSuccessResponse</a> | <a class="autorefs autorefs-internal" title="SetTaskPushNotificationConfigSuccessResponse (a2a.types.SetTaskPushNotificationConfigSuccessResponse)" href="#a2a.types.SetTaskPushNotificationConfigSuccessResponse">SetTaskPushNotificationConfigSuccessResponse</a> | <a class="autorefs autorefs-internal" title="GetTaskPushNotificationConfigSuccessResponse (a2a.types.GetTaskPushNotificationConfigSuccessResponse)" href="#a2a.types.GetTaskPushNotificationConfigSuccessResponse">GetTaskPushNotificationConfigSuccessResponse</a> | <a class="autorefs autorefs-internal" title="ListTaskPushNotificationConfigSuccessResponse (a2a.types.ListTaskPushNotificationConfigSuccessResponse)" href="#a2a.types.ListTaskPushNotificationConfigSuccessResponse">ListTaskPushNotificationConfigSuccessResponse</a> | <a class="autorefs autorefs-internal" title="DeleteTaskPushNotificationConfigSuccessResponse (a2a.types.DeleteTaskPushNotificationConfigSuccessResponse)" href="#a2a.types.DeleteTaskPushNotificationConfigSuccessResponse">DeleteTaskPushNotificationConfigSuccessResponse</a>]</code></p>
+              Bases: <code><span title="pydantic.RootModel">RootModel</span>[<a class="autorefs autorefs-internal" title="JSONRPCErrorResponse (a2a.types.JSONRPCErrorResponse)" href="#a2a.types.JSONRPCErrorResponse">JSONRPCErrorResponse</a> | <a class="autorefs autorefs-internal" title="SendMessageSuccessResponse (a2a.types.SendMessageSuccessResponse)" href="#a2a.types.SendMessageSuccessResponse">SendMessageSuccessResponse</a> | <a class="autorefs autorefs-internal" title="SendStreamingMessageSuccessResponse (a2a.types.SendStreamingMessageSuccessResponse)" href="#a2a.types.SendStreamingMessageSuccessResponse">SendStreamingMessageSuccessResponse</a> | <a class="autorefs autorefs-internal" title="GetTaskSuccessResponse (a2a.types.GetTaskSuccessResponse)" href="#a2a.types.GetTaskSuccessResponse">GetTaskSuccessResponse</a> | <a class="autorefs autorefs-internal" title="CancelTaskSuccessResponse (a2a.types.CancelTaskSuccessResponse)" href="#a2a.types.CancelTaskSuccessResponse">CancelTaskSuccessResponse</a> | <a class="autorefs autorefs-internal" title="SetTaskPushNotificationConfigSuccessResponse (a2a.types.SetTaskPushNotificationConfigSuccessResponse)" href="#a2a.types.SetTaskPushNotificationConfigSuccessResponse">SetTaskPushNotificationConfigSuccessResponse</a> | <a class="autorefs autorefs-internal" title="GetTaskPushNotificationConfigSuccessResponse (a2a.types.GetTaskPushNotificationConfigSuccessResponse)" href="#a2a.types.GetTaskPushNotificationConfigSuccessResponse">GetTaskPushNotificationConfigSuccessResponse</a>]</code></p>
 
 
 
@@ -18556,7 +18520,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
 
 <h3 id="a2a.types.TaskStatus.timestamp" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">timestamp</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">examples</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;2023-10-27T10:00:00Z&#39;</span><span class="p">])</span></code>
+            <code class="highlight language-python"><span class="n">timestamp</span> <span class="o">=</span> <span class="kc">None</span></code>
 
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>

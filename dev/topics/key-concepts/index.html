@@ -1377,7 +1377,7 @@
 <li>For tasks that produce results incrementally or provide real-time progress updates.</li>
 <li>The client initiates an interaction with the server using <code>message/stream</code>.</li>
 <li>The server responds with an HTTP connection that remains open, over which it sends a stream of Server-Sent Events (SSE).</li>
-<li>These events can be <code>Task</code>, <code>Message</code>, or <code>`TaskStatusUpdateEvent</code> (for status changes) or <code>TaskArtifactUpdateEvent</code> (for new or updated artifact chunks).</li>
+<li>These events can be <code>Task</code>, <code>Message</code>, or <code>TaskStatusUpdateEvent</code> (for status changes) or <code>TaskArtifactUpdateEvent</code> (for new or updated artifact chunks).</li>
 <li>This requires the server to advertise the <code>streaming</code> capability in its Agent Card.</li>
 <li>Learn more about <a href="../streaming-and-async/">Streaming &amp; Asynchronous Operations</a>.</li>
 </ul>

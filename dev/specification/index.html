@@ -3159,120 +3159,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-0-69"><a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a><span class="w">  </span><span class="nx">supportsAuthenticatedExtendedCard?</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
 </span><span id="__span-0-70"><a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>protocolVersion</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">The version of the A2A protocol this agent supports.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Human-readable name of the agent.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>description</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Human-readable description. <a href="https://commonmark.org/">CommonMark</a> MAY be used.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>url</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Base URL for the agent's A2A service. Must be absolute. HTTPS for production.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>preferredTransport</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">The transport of the preferred endpoint. Official transports supported are JSONRPC, GRPC or HTTP+JSON</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>additionalInterfaces</code></td>
-<td style="text-align: left;"><a href="#555-agentinterface-object"><code>AgentInterface[]</code></a></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Additional transports supported by the service for clients to use.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>provider</code></td>
-<td style="text-align: left;"><a href="#551-agentprovider-object"><code>AgentProvider</code></a></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Information about the agent's provider.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>iconUrl</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">A URL to an icon for the agent.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>version</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Agent or A2A implementation version string.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>documentationUrl</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">URL to human-readable documentation for the agent.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>capabilities</code></td>
-<td style="text-align: left;"><a href="#552-agentcapabilities-object"><code>AgentCapabilities</code></a></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Specifies optional A2A protocol features supported (e.g., streaming, push notifications).</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>securitySchemes</code></td>
-<td style="text-align: left;">{ [scheme: string]: <a href="#553-securityscheme-object">SecurityScheme</a> }</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Security scheme details used for authenticating with this agent. undefined implies no A2A-advertised auth (not recommended for production).</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>security</code></td>
-<td style="text-align: left;"><code>{ [scheme: string]: string[]; }[]</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Security requirements for contacting the agent.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>defaultInputModes</code></td>
-<td style="text-align: left;"><code>string[]</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Input Media Types accepted by the agent.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>defaultOutputModes</code></td>
-<td style="text-align: left;"><code>string[]</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Output Media Types produced by the agent.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>skills</code></td>
-<td style="text-align: left;"><a href="#554-agentskill-object"><code>AgentSkill[]</code></a></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Array of skills. Must have at least one if the agent performs actions.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>supportsAuthenticatedExtendedCard</code></td>
-<td style="text-align: left;"><code>boolean</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Indicates support for retrieving a more detailed Agent Card via an authenticated endpoint.</td>
-</tr>
-</tbody>
-</table>
 <h4 id="551-agentprovider-object">5.5.1. <code>AgentProvider</code> Object<a class="headerlink" href="#551-agentprovider-object" title="Permanent link">&para;</a></h4>
 <p>Information about the organization or entity providing the agent.</p>
 <div class="language-ts no-copy highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/**</span>
@@ -3286,30 +3172,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
 </span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>organization</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Name of the organization/entity.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>url</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">URL for the provider's website/contact.</td>
-</tr>
-</tbody>
-</table>
 <h4 id="552-agentcapabilities-object">5.5.2. <code>AgentCapabilities</code> Object<a class="headerlink" href="#552-agentcapabilities-object" title="Permanent link">&para;</a></h4>
 <p>Specifies optional A2A protocol features supported by the agent.</p>
 <div class="language-ts no-copy highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/**</span>
@@ -3326,47 +3188,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span><span class="nx">extensions?</span><span class="o">:</span><span class="w"> </span><span class="kt">AgentExtension</span><span class="p">[];</span>
 </span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Default</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>streaming</code></td>
-<td style="text-align: left;"><code>boolean</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;"><code>false</code></td>
-<td style="text-align: left;">Indicates support for SSE streaming methods (<code>message/stream</code>, <code>tasks/resubscribe</code>).</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>pushNotifications</code></td>
-<td style="text-align: left;"><code>boolean</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;"><code>false</code></td>
-<td style="text-align: left;">Indicates support for push notification methods (<code>tasks/pushNotificationConfig/*</code>).</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>stateTransitionHistory</code></td>
-<td style="text-align: left;"><code>boolean</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;"><code>false</code></td>
-<td style="text-align: left;">Placeholder for future feature: exposing detailed task status change history.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>extensions</code></td>
-<td style="text-align: left;"><a href="#5521-agentextension-object"><code>AgentExtension</code>[]</a></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;"><code>[]</code></td>
-<td style="text-align: left;">A list of extensions supported by this agent.</td>
-</tr>
-</tbody>
-</table>
 <h4 id="5521-agentextension-object">5.5.2.1. <code>AgentExtension</code> Object<a class="headerlink" href="#5521-agentextension-object" title="Permanent link">&para;</a></h4>
 <p>Specifies an extension to the A2A protocol supported by the agent.</p>
 <div class="language-ts no-copy highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/**</span>
@@ -3384,42 +3205,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">  </span><span class="nx">params</span><span class="o">?:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">[</span><span class="nx">key</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="nx">any</span><span class="w"> </span><span class="p">};</span>
 </span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>uri</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">The URI for the supported extension.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>required</code></td>
-<td style="text-align: left;"><code>boolean</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Whether the agent requires clients to follow some protocol logic specific to the extension. Clients should expect failures when attempting to interact with a server that requires an extension the client does not support.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>description</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">A description of how the extension is used by the agent.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>params</code></td>
-<td style="text-align: left;"><code>object</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Configuration parameters specific to the extension</td>
-</tr>
-</tbody>
-</table>
 <h4 id="553-securityscheme-object">5.5.3. <code>SecurityScheme</code> Object<a class="headerlink" href="#553-securityscheme-object" title="Permanent link">&para;</a></h4>
 <p>Describes the authentication requirements for accessing the agent's <code>url</code> endpoint. Refer <a href="#56-sample-agent-card">Sample Agent Card</a> for an example.</p>
 <div class="language-ts no-copy highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">/**</span>
@@ -3468,60 +3253,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="w">  </span><span class="nx">outputModes?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[];</span>
 </span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>id</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Unique skill identifier within this agent.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Human-readable skill name.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>description</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Detailed skill description. <a href="https://commonmark.org/">CommonMark</a> MAY be used.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>tags</code></td>
-<td style="text-align: left;"><code>string[]</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Keywords/categories for discoverability.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>examples</code></td>
-<td style="text-align: left;"><code>string[]</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Example prompts or use cases demonstrating skill usage.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>inputModes</code></td>
-<td style="text-align: left;"><code>string[]</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Overrides <code>defaultInputModes</code> for this specific skill. Accepted Media Types.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>outputModes</code></td>
-<td style="text-align: left;"><code>string[]</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Overrides <code>defaultOutputModes</code> for this specific skill. Produced Media Types.</td>
-</tr>
-</tbody>
-</table>
 <h4 id="555-agentinterface-object">5.5.5. <code>AgentInterface</code> Object<a class="headerlink" href="#555-agentinterface-object" title="Permanent link">&para;</a></h4>
 <p>Provides a declaration of a combination of the target url and the supported transport to interact with the agent.</p>
 <div class="language-ts no-copy highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cm">/**</span>
@@ -3538,30 +3269,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">  </span><span class="nx">transport</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
 </span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>url</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">The url for this interface.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>transport</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">The transport supported by this url (one of JSONRPC, GRPC or HTTP+JSON).</td>
-</tr>
-</tbody>
-</table>
 <h3 id="56-sample-agent-card">5.6. Sample Agent Card<a class="headerlink" href="#56-sample-agent-card" title="Permanent link">&para;</a></h3>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">&quot;protocolVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.2.9&quot;</span><span class="p">,</span>
@@ -3655,60 +3362,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">  </span><span class="nx">kind</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;task&quot;</span><span class="p">;</span>
 </span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>id</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Server generated unique task identifier (e.g., UUID)</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>contextId</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Server generated ID for contextual alignment across interactions</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>status</code></td>
-<td style="text-align: left;"><a href="#62-taskstatus-object"><code>TaskStatus</code></a></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Current status of the task (state, message, timestamp).</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>artifacts</code></td>
-<td style="text-align: left;"><a href="#67-artifact-object"><code>Artifact[]</code></a></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Array of outputs generated by the agent for this task.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>history</code></td>
-<td style="text-align: left;"><a href="#64-message-object"><code>Message[]</code></a></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Optional array of recent messages exchanged, if requested by <code>historyLength</code>.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>metadata</code></td>
-<td style="text-align: left;"><code>Record&lt;string, any&gt;</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Arbitrary key-value metadata associated with the task.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>kind</code></td>
-<td style="text-align: left;"><code>"task"</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Type discriminator, literal value</td>
-</tr>
-</tbody>
-</table>
 <h3 id="62-taskstatus-object">6.2. <code>TaskStatus</code> Object<a class="headerlink" href="#62-taskstatus-object" title="Permanent link">&para;</a></h3>
 <p>Represents the current state and associated context (e.g., a message from the agent) of a <code>Task</code>.</p>
 <div class="language-ts no-copy highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cm">/** TaskState and accompanying message. */</span>
@@ -3723,36 +3376,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">  </span><span class="nx">timestamp?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
 </span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>state</code></td>
-<td style="text-align: left;"><a href="#63-taskstate-enum"><code>TaskState</code></a></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Current lifecycle state of the task.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>message</code></td>
-<td style="text-align: left;"><a href="#64-message-object"><code>Message</code></a></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Optional message providing context for the current status.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>timestamp</code></td>
-<td style="text-align: left;"><code>string</code> (ISO 8601)</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Timestamp (UTC recommended) when this status was recorded.</td>
-</tr>
-</tbody>
-</table>
 <h3 id="63-taskstate-enum">6.3. <code>TaskState</code> Enum<a class="headerlink" href="#63-taskstate-enum" title="Permanent link">&para;</a></h3>
 <p>Defines the possible lifecycle states of a <code>Task</code>.</p>
 <div class="language-ts no-copy highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cm">/** Represents the possible states of a Task. */</span>
@@ -3768,62 +3391,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">  </span><span class="nx">Unknown</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;unknown&quot;</span><span class="p">,</span>
 </span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Value</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Terminal?</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>submitted</code></td>
-<td style="text-align: left;">Task received by the server and acknowledged, but processing has not yet actively started.</td>
-<td style="text-align: left;">No</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>working</code></td>
-<td style="text-align: left;">Task is actively being processed by the agent. Client may expect further updates or a terminal state.</td>
-<td style="text-align: left;">No</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>input-required</code></td>
-<td style="text-align: left;">Agent requires additional input from the client/user to proceed. The task is effectively paused.</td>
-<td style="text-align: left;">No (Pause)</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>completed</code></td>
-<td style="text-align: left;">Task finished successfully. Results are typically available in <code>Task.artifacts</code> or <code>TaskStatus.message</code>.</td>
-<td style="text-align: left;">Yes</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>canceled</code></td>
-<td style="text-align: left;">Task was canceled (e.g., by a <code>tasks/cancel</code> request or server-side policy).</td>
-<td style="text-align: left;">Yes</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>failed</code></td>
-<td style="text-align: left;">Task terminated due to an error during processing. <code>TaskStatus.message</code> may contain error details.</td>
-<td style="text-align: left;">Yes</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>rejected</code></td>
-<td style="text-align: left;">Task terminated due to rejection by remote agent. <code>TaskStatus.message</code> may contain error details.</td>
-<td style="text-align: left;">Yes</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>auth-required</code></td>
-<td style="text-align: left;">Agent requires additional authentication from the client/user to proceed. The task is effectively paused.</td>
-<td style="text-align: left;">No (Pause)</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>unknown</code></td>
-<td style="text-align: left;">The state of the task cannot be determined (e.g., task ID is invalid, unknown, or has expired).</td>
-<td style="text-align: left;">Yes</td>
-</tr>
-</tbody>
-</table>
 <h3 id="64-message-object">6.4. <code>Message</code> Object<a class="headerlink" href="#64-message-object" title="Permanent link">&para;</a></h3>
 <p>Represents a single communication turn or a piece of contextual information between a client and an agent. Messages are used for instructions, prompts, replies, and status updates.</p>
 <div class="language-ts no-copy highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cm">/** Represents a single message exchanged between user and agent. */</span>
@@ -3850,72 +3417,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="w">  </span><span class="nx">kind</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;message&quot;</span><span class="p">;</span>
 </span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>role</code></td>
-<td style="text-align: left;"><code>"user"</code> | <code>"agent"</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Indicates the sender: <code>"user"</code> (from A2A Client) or <code>"agent"</code> (from A2A Server).</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>parts</code></td>
-<td style="text-align: left;"><a href="#65-part-union-type"><code>Part[]</code></a></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Array of content parts. Must contain at least one part.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>metadata</code></td>
-<td style="text-align: left;"><code>Record&lt;string, any&gt;</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Arbitrary key-value metadata associated with this message.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>extensions</code></td>
-<td style="text-align: left;"><code>string[]</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">A list of extension URIs that contributed to this message.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>referenceTaskIds</code></td>
-<td style="text-align: left;"><code>string[]</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">List of tasks referenced as contextual hint by this message.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>messageId</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Message identifier generated by the message sender</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>taskId</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Task identifier the current message is related to</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>contextId</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Context identifier the message is associated with</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>kind</code></td>
-<td style="text-align: left;"><code>"message"</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Type discriminator, literal value</td>
-</tr>
-</tbody>
-</table>
 <h3 id="65-part-union-type">6.5. <code>Part</code> Union Type<a class="headerlink" href="#65-part-union-type" title="Permanent link">&para;</a></h3>
 <p>Represents a distinct piece of content within a <code>Message</code> or <code>Artifact</code>. A <code>Part</code> is a union type representing exportable content as either <code>TextPart</code>, <code>FilePart</code>, or <code>DataPart</code>. All <code>Part</code> types also include an optional <code>metadata</code> field (<code>Record&lt;string, any&gt;</code>) for part-specific metadata.</p>
 <div class="language-ts no-copy highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="cm">/** Represents a part of a message, which can be text, a file, or structured data. */</span>
@@ -3932,36 +3433,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">  </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
 </span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>kind</code></td>
-<td style="text-align: left;"><code>"text"</code> (literal)</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Identifies this part as textual content.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>text</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">The textual content of the part.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>metadata</code></td>
-<td style="text-align: left;"><code>Record&lt;string, any&gt;</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Optional metadata specific to this text part.</td>
-</tr>
-</tbody>
-</table>
 <h4 id="652-filepart-object">6.5.2. <code>FilePart</code> Object<a class="headerlink" href="#652-filepart-object" title="Permanent link">&para;</a></h4>
 <p>For conveying file-based content.</p>
 <div class="language-ts no-copy highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="cm">/** Represents a File segment within parts.*/</span>
@@ -3972,36 +3443,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">  </span><span class="nx">file</span><span class="o">:</span><span class="w"> </span><span class="kt">FileWithBytes</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">FileWithUri</span><span class="p">;</span>
 </span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>kind</code></td>
-<td style="text-align: left;"><code>"file"</code> (literal)</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Identifies this part as file content.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>file</code></td>
-<td style="text-align: left;"><code>FileWithBytes</code> | <code>FileWithUri</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Contains the file details and data/reference.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>metadata</code></td>
-<td style="text-align: left;"><code>Record&lt;string, any&gt;</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Optional metadata specific to this file part.</td>
-</tr>
-</tbody>
-</table>
 <h4 id="653-datapart-object">6.5.3. <code>DataPart</code> Object<a class="headerlink" href="#653-datapart-object" title="Permanent link">&para;</a></h4>
 <p>For conveying structured JSON data. Useful for forms, parameters, or any machine-readable information.</p>
 <div class="language-ts no-copy highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="cm">/** Represents a structured data segment within a message part. */</span>
@@ -4015,36 +3456,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">  </span><span class="p">};</span>
 </span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>kind</code></td>
-<td style="text-align: left;"><code>"data"</code> (literal)</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Identifies this part as structured data.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>data</code></td>
-<td style="text-align: left;"><code>Record&lt;string, any&gt;</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">The structured JSON data payload (an object or an array).</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>metadata</code></td>
-<td style="text-align: left;"><code>Record&lt;string, any&gt;</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Optional metadata specific to this data part (e.g., reference to a schema).</td>
-</tr>
-</tbody>
-</table>
 <h3 id="661-filewithbytes-object">6.6.1 <code>FileWithBytes</code> Object<a class="headerlink" href="#661-filewithbytes-object" title="Permanent link">&para;</a></h3>
 <p>Represents the data for a file, used within a <code>FilePart</code>.</p>
 <div class="language-ts no-copy highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="cm">/** Define the variant where &#39;bytes&#39; is present and &#39;uri&#39; is absent */</span>
@@ -4054,36 +3465,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">  </span><span class="nx">uri?</span><span class="o">:</span><span class="w"> </span><span class="kt">never</span><span class="p">;</span>
 </span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Original filename (e.g., "report.pdf").</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>mimeType</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;"><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types">Media Type</a> (e.g., <code>image/png</code>). Strongly recommended.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>bytes</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Base64 encoded file content.</td>
-</tr>
-</tbody>
-</table>
 <h3 id="662-filewithuri-object">6.6.2 <code>FileWithUri</code> Object<a class="headerlink" href="#662-filewithuri-object" title="Permanent link">&para;</a></h3>
 <p>Represents the URI for a file, used within a <code>FilePart</code>.</p>
 <div class="language-ts no-copy highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="cm">/** Define the variant where &#39;uri&#39; is present and &#39;bytes&#39; is absent  */</span>
@@ -4093,36 +3474,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">  </span><span class="nx">bytes?</span><span class="o">:</span><span class="w"> </span><span class="kt">never</span><span class="p">;</span>
 </span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Original filename (e.g., "report.pdf").</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>mimeType</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;"><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types">Media Type</a> (e.g., <code>image/png</code>). Strongly recommended.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>uri</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">URI (absolute URL strongly recommended) to file content. Accessibility is context-dependent.</td>
-</tr>
-</tbody>
-</table>
 <h3 id="67-artifact-object">6.7. <code>Artifact</code> Object<a class="headerlink" href="#67-artifact-object" title="Permanent link">&para;</a></h3>
 <p>Represents a tangible output generated by the agent during a task. Artifacts are the results or products of the agent's work.</p>
 <div class="language-ts no-copy highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="cm">/** Represents an artifact generated for a task. */</span>
@@ -4143,54 +3494,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="w">  </span><span class="nx">extensions?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[];</span>
 </span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>artifactId</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td>Identifier for the artifact generated by the agent.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">No</td>
-<td>Descriptive name for the artifact.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>description</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">No</td>
-<td>Human-readable description of the artifact.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>parts</code></td>
-<td style="text-align: left;"><a href="#65-part-union-type"><code>Part[]</code></a></td>
-<td style="text-align: left;">Yes</td>
-<td>Content of the artifact, as one or more <code>Part</code> objects. Must have at least one.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>metadata</code></td>
-<td style="text-align: left;"><code>Record&lt;string, any&gt;</code></td>
-<td style="text-align: left;">No</td>
-<td>Arbitrary key-value metadata associated with the artifact.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>extensions</code></td>
-<td style="text-align: left;"><code>string[]</code></td>
-<td style="text-align: left;">No</td>
-<td>A list of extension URIs that contributed to this artifact.</td>
-</tr>
-</tbody>
-</table>
 <h3 id="68-pushnotificationconfig-object">6.8. <code>PushNotificationConfig</code> Object<a class="headerlink" href="#68-pushnotificationconfig-object" title="Permanent link">&para;</a></h3>
 <p>Configuration provided by the client to the server for sending asynchronous push notifications about task updates.</p>
 <div class="language-ts no-copy highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="cm">/**Configuration for setting up push notifications for task updates. */</span>
@@ -4204,42 +3507,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">  </span><span class="nx">authentication?</span><span class="o">:</span><span class="w"> </span><span class="kt">PushNotificationAuthenticationInfo</span><span class="p">;</span>
 </span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>url</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Absolute HTTPS webhook URL for the A2A Server to POST task updates to.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>id</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Optional server-generated identifier for the push notification configuration to support multiple callbacks.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>token</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Optional client-generated opaque token for the client's webhook receiver to validate the notification (e.g., server includes it in an <code>X-A2A-Notification-Token</code> header).</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>authentication</code></td>
-<td style="text-align: left;"><a href="#69-pushnotificationauthenticationinfo-object"><code>PushNotificationAuthenticationInfo</code></a></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Authentication details the A2A Server must use when calling the <code>url</code>. The client's webhook (receiver) defines these requirements.</td>
-</tr>
-</tbody>
-</table>
 <h3 id="69-pushnotificationauthenticationinfo-object">6.9. <code>PushNotificationAuthenticationInfo</code> Object<a class="headerlink" href="#69-pushnotificationauthenticationinfo-object" title="Permanent link">&para;</a></h3>
 <p>A generic structure for specifying authentication requirements, typically used within <code>PushNotificationConfig</code> to describe how the A2A Server should authenticate to the client's webhook.</p>
 <div class="language-ts no-copy highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="cm">/** Defines authentication details for push notifications. */</span>
@@ -4250,30 +3517,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">  </span><span class="nx">credentials?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
 </span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>schemes</code></td>
-<td style="text-align: left;"><code>string[]</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Array of auth scheme names the A2A Server must use when calling the client's webhook (e.g., "Bearer", "ApiKey").</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>credentials</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Optional static credentials or scheme-specific configuration info. <strong>Handle with EXTREME CAUTION if secrets are involved.</strong> Prefer server-side dynamic credential fetching where possible.</td>
-</tr>
-</tbody>
-</table>
 <h3 id="610-taskpushnotificationconfig-object">6.10. <code>TaskPushNotificationConfig</code> Object<a class="headerlink" href="#610-taskpushnotificationconfig-object" title="Permanent link">&para;</a></h3>
 <p>Used as the <code>params</code> object for the <a href="#75-taskspushnotificationconfigset"><code>tasks/pushNotificationConfig/set</code></a> method and as the <code>result</code> object for the <a href="#76-taskspushnotificationconfigget"><code>tasks/pushNotificationConfig/get</code></a> method.</p>
 <div class="language-ts no-copy highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="cm">/**Parameters for setting or getting push notification configuration for a task */</span>
@@ -4284,30 +3527,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">  </span><span class="nx">pushNotificationConfig</span><span class="o">:</span><span class="w"> </span><span class="kt">PushNotificationConfig</span><span class="p">;</span>
 </span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>taskId</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">The ID of the task to configure push notifications for, or retrieve configuration from.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>pushNotificationConfig</code></td>
-<td style="text-align: left;"><a href="#68-pushnotificationconfig-object"><code>PushNotificationConfig</code></a></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">The push notification configuration. For <code>set</code>, the desired config. For <code>get</code>, the current config (secrets MAY be omitted by server).</td>
-</tr>
-</tbody>
-</table>
 <h3 id="611-json-rpc-structures">6.11. JSON-RPC Structures<a class="headerlink" href="#611-json-rpc-structures" title="Permanent link">&para;</a></h3>
 <p>A2A adheres to the standard <a href="https://www.jsonrpc.org/specification">JSON-RPC 2.0</a> structures for requests and responses.</p>
 <h4 id="6111-jsonrpcrequest-object">6.11.1. <code>JSONRPCRequest</code> Object<a class="headerlink" href="#6111-jsonrpcrequest-object" title="Permanent link">&para;</a></h4>
@@ -4351,36 +3570,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-22-20"><a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a><span class="w">  </span><span class="nx">data?</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">;</span>
 </span><span id="__span-22-21"><a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>code</code></td>
-<td style="text-align: left;"><code>integer</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Integer error code. See <a href="#8-error-handling">Section 8 (Error Handling)</a> for standard and A2A-specific codes.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>message</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Short, human-readable summary of the error.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>data</code></td>
-<td style="text-align: left;"><code>any</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Optional additional structured information about the error.</td>
-</tr>
-</tbody>
-</table>
 <h2 id="7-protocol-rpc-methods">7. Protocol RPC Methods<a class="headerlink" href="#7-protocol-rpc-methods" title="Permanent link">&para;</a></h2>
 <p>All A2A RPC methods are invoked by the A2A Client by sending an HTTP POST request to the A2A Server's <code>url</code> (as specified in its <code>AgentCard</code>). The body of the HTTP POST request <strong>MUST</strong> be a <code>JSONRPCRequest</code> object, and the <code>Content-Type</code> header <strong>MUST</strong> be <code>application/json</code>.</p>
 <p>The A2A Server's HTTP response body <strong>MUST</strong> be a <code>JSONRPCResponse</code> object (or, for streaming methods, an SSE stream where each event's data is a <code>JSONRPCResponse</code>). The <code>Content-Type</code> for JSON-RPC responses is <code>application/json</code>. For SSE streams, it is <code>text/event-stream</code>.</p>
@@ -4466,36 +3655,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-27-22"><a id="__codelineno-27-22" name="__codelineno-27-22" href="#__codelineno-27-22"></a><span class="w">  </span><span class="nx">blocking?</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
 </span><span id="__span-27-23"><a id="__codelineno-27-23" name="__codelineno-27-23" href="#__codelineno-27-23"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>message</code></td>
-<td style="text-align: left;"><a href="#64-message-object"><code>Message</code></a></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">The message content to send. <code>Message.role</code> is typically <code>"user"</code>.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>configuration</code></td>
-<td style="text-align: left;"><a href="#711-messagesendparams-object"><code>MessageSendConfiguration</code></a></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Optional: additional message configuration</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>metadata</code></td>
-<td style="text-align: left;"><code>Record&lt;string, any&gt;</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Request-specific metadata.</td>
-</tr>
-</tbody>
-</table>
 <h3 id="72-messagestream">7.2. <code>message/stream</code><a class="headerlink" href="#72-messagestream" title="Permanent link">&para;</a></h3>
 <p>Sends a message to an agent to initiate/continue a task AND subscribes the client to real-time updates for that task via Server-Sent Events (SSE). This method requires the server to have <code>AgentCard.capabilities.streaming: true</code>. Just like <code>message/send</code>, a task which has reached a terminal state (completed, canceled, rejected, or failed) can't be restarted. Sending a message to such a task will result in an error. For more information, refer to the <a href="../topics/life-of-a-task/">Life of a Task guide</a>.</p>
 <div class="grid cards">
@@ -4572,36 +3731,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-32-13"><a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a><span class="w">  </span><span class="nx">result</span><span class="o">:</span><span class="w"> </span><span class="kt">Message</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">Task</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">TaskStatusUpdateEvent</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">TaskArtifactUpdateEvent</span><span class="p">;</span>
 </span><span id="__span-32-14"><a id="__codelineno-32-14" name="__codelineno-32-14" href="#__codelineno-32-14"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>jsonrpc</code></td>
-<td style="text-align: left;"><code>"2.0"</code> (literal)</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">JSON-RPC version string.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>id</code></td>
-<td style="text-align: left;"><code>string</code> | <code>number</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Matches the <code>id</code> from the originating <code>message/stream</code> or <code>tasks/resubscribe</code> request.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>result</code></td>
-<td style="text-align: left;"><strong>Either</strong> <code>Message</code> <br> <strong>OR</strong> <code>Task</code> <br> <strong>OR</strong> <a href="#722-taskstatusupdateevent-object"><code>TaskStatusUpdateEvent</code></a> <br> <strong>OR</strong> <a href="#723-taskartifactupdateevent-object"><code>TaskArtifactUpdateEvent</code></a></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">The event payload</td>
-</tr>
-</tbody>
-</table>
 <h4 id="722-taskstatusupdateevent-object">7.2.2. <code>TaskStatusUpdateEvent</code> Object<a class="headerlink" href="#722-taskstatusupdateevent-object" title="Permanent link">&para;</a></h4>
 <p>Carries information about a change in the task's status during streaming. This is one of the possible <code>result</code> types in a <code>SendStreamingMessageSuccessResponse</code>.</p>
 <div class="language-ts no-copy highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="cm">/** Sent by server during sendStream or subscribe requests */</span>
@@ -4622,61 +3751,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-33-16"><a id="__codelineno-33-16" name="__codelineno-33-16" href="#__codelineno-33-16"></a><span class="w">  </span><span class="p">};</span>
 </span><span id="__span-33-17"><a id="__codelineno-33-17" name="__codelineno-33-17" href="#__codelineno-33-17"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Default</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>taskId</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Task ID being updated</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>contextId</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Context ID the task is associated with</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>kind</code></td>
-<td style="text-align: left;"><code>string</code>, literal</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;"><code>status-update</code></td>
-<td style="text-align: left;">Type discriminator, literal value</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>status</code></td>
-<td style="text-align: left;"><a href="#62-taskstatus-object"><code>TaskStatus</code></a></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">The new <code>TaskStatus</code> object.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>final</code></td>
-<td style="text-align: left;"><code>boolean</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;"><code>false</code></td>
-<td style="text-align: left;">If <code>true</code>, indicates this is the terminal status update for the current stream cycle. The server typically closes the SSE connection after this.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>metadata</code></td>
-<td style="text-align: left;"><code>Record&lt;string, any&gt;</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;"><code>undefined</code></td>
-<td style="text-align: left;">Event-specific metadata.</td>
-</tr>
-</tbody>
-</table>
 <h4 id="723-taskartifactupdateevent-object">7.2.3. <code>TaskArtifactUpdateEvent</code> Object<a class="headerlink" href="#723-taskartifactupdateevent-object" title="Permanent link">&para;</a></h4>
 <p>Carries a new or updated artifact (or a chunk of an artifact) generated by the task during streaming. This is one of the possible <code>result</code> types in a <code>SendTaskStreamingResponse</code>.</p>
 <div class="language-ts no-copy highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="cm">/** Sent by server during sendStream or subscribe requests */</span>
@@ -4699,68 +3773,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-34-18"><a id="__codelineno-34-18" name="__codelineno-34-18" href="#__codelineno-34-18"></a><span class="w">  </span><span class="p">};</span>
 </span><span id="__span-34-19"><a id="__codelineno-34-19" name="__codelineno-34-19" href="#__codelineno-34-19"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Default</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>taskId</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Task ID associated with the generated artifact part</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>contextId</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Context ID the task is associated with</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>kind</code></td>
-<td style="text-align: left;"><code>string</code>, literal</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;"><code>artifact-update</code></td>
-<td style="text-align: left;">Type discriminator, literal value</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>artifact</code></td>
-<td style="text-align: left;"><a href="#67-artifact-object"><code>Artifact</code></a></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">The <code>Artifact</code> data. Could be a complete artifact or an incremental chunk.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>append</code></td>
-<td style="text-align: left;"><code>boolean</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;"><code>false</code></td>
-<td style="text-align: left;"><code>true</code> means append parts to artifact; <code>false</code> (default) means replace.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>lastChunk</code></td>
-<td style="text-align: left;"><code>boolean</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;"><code>false</code></td>
-<td style="text-align: left;"><code>true</code> indicates this is the final update for the artifact.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>metadata</code></td>
-<td style="text-align: left;"><code>Record&lt;string, any&gt;</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;"><code>undefined</code></td>
-<td style="text-align: left;">Event-specific metadata.</td>
-</tr>
-</tbody>
-</table>
 <h3 id="73-tasksget">7.3. <code>tasks/get</code><a class="headerlink" href="#73-tasksget" title="Permanent link">&para;</a></h3>
 <p>Retrieves the current state (including status, artifacts, and optionally history) of a previously initiated task. This is typically used for polling the status of a task initiated with <code>message/send</code>, or for fetching the final state of a task after being notified via a push notification or after an SSE stream has ended.</p>
 <div class="grid cards">
@@ -4806,36 +3818,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="w">  </span><span class="nx">historyLength?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
 </span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>id</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">The ID of the task whose current state is to be retrieved.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>historyLength</code></td>
-<td style="text-align: left;"><code>integer</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">If positive, requests the server to include up to <code>N</code> recent messages in <code>Task.history</code>.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>metadata</code></td>
-<td style="text-align: left;"><code>Record&lt;string, any&gt;</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Request-specific metadata.</td>
-</tr>
-</tbody>
-</table>
 <h3 id="taskslist"><code>tasks/list</code><a class="headerlink" href="#taskslist" title="Permanent link">&para;</a></h3>
 <div class="grid cards">
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="json-rpc_3" name="__tabbed_4" type="radio" /><input id="grpc_3" name="__tabbed_4" type="radio" /><input id="rest_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="json-rpc_3">JSON-RPC</label><label for="grpc_3">gRPC</label><label for="rest_3">REST</label></div>
@@ -4920,30 +3902,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-41-7"><a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a><span class="w">  </span><span class="p">};</span>
 </span><span id="__span-41-8"><a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>id</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">The ID of the task.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>metadata</code></td>
-<td style="text-align: left;"><code>Record&lt;string, any&gt;</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Request-specific metadata.</td>
-</tr>
-</tbody>
-</table>
 <h3 id="75-taskspushnotificationconfigset">7.5. <code>tasks/pushNotificationConfig/set</code><a class="headerlink" href="#75-taskspushnotificationconfigset" title="Permanent link">&para;</a></h3>
 <p>Sets or updates the push notification configuration for a specified task. This allows the client to tell the server where and how to send asynchronous updates for the task. Requires the server to have <code>AgentCard.capabilities.pushNotifications: true</code>.</p>
 <div class="grid cards">
@@ -5029,36 +3987,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-45-3"><a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="w">  </span><span class="nx">pushNotificationConfigId?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
 </span><span id="__span-45-4"><a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>id</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">The ID of the task.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>pushNotificationConfigId</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Push notification configuration id. Server will return one of the associated configurations if config id is not specified</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>metadata</code></td>
-<td style="text-align: left;"><code>Record&lt;string, any&gt;</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Request-specific metadata.</td>
-</tr>
-</tbody>
-</table>
 <h3 id="77-taskspushnotificationconfiglist">7.7. <code>tasks/pushNotificationConfig/list</code><a class="headerlink" href="#77-taskspushnotificationconfiglist" title="Permanent link">&para;</a></h3>
 <p>Retrieves the associated push notification configurations for a specified task. Requires the server to have <code>AgentCard.capabilities.pushNotifications: true</code>.</p>
 <div class="grid cards">
@@ -5109,30 +4037,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-47-9"><a id="__codelineno-47-9" name="__codelineno-47-9" href="#__codelineno-47-9"></a><span class="w">  </span><span class="nx">params</span><span class="o">:</span><span class="w"> </span><span class="kt">ListTaskPushNotificationConfigParams</span><span class="p">;</span>
 </span><span id="__span-47-10"><a id="__codelineno-47-10" name="__codelineno-47-10" href="#__codelineno-47-10"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>id</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">The ID of the task.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>metadata</code></td>
-<td style="text-align: left;"><code>Record&lt;string, any&gt;</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Request-specific metadata.</td>
-</tr>
-</tbody>
-</table>
 <h3 id="78-taskspushnotificationconfigdelete">7.8. <code>tasks/pushNotificationConfig/delete</code><a class="headerlink" href="#78-taskspushnotificationconfigdelete" title="Permanent link">&para;</a></h3>
 <p>Deletes an associated push notification configuration for a task. Requires the server to have <code>AgentCard.capabilities.pushNotifications: true</code>.</p>
 <ul>
@@ -5147,36 +4051,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a><span class="w">  </span><span class="nx">pushNotificationConfigId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
 </span><span id="__span-48-4"><a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="p">}</span>
 </span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>id</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">The ID of the task.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>pushNotificationConfigId</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Push notification configuration id</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>metadata</code></td>
-<td style="text-align: left;"><code>Record&lt;string, any&gt;</code></td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Request-specific metadata.</td>
-</tr>
-</tbody>
-</table>
 <h3 id="79-tasksresubscribe">7.9. <code>tasks/resubscribe</code><a class="headerlink" href="#79-tasksresubscribe" title="Permanent link">&para;</a></h3>
 <p>Allows a client to reconnect to an SSE stream for an ongoing task after a previous connection (from <code>message/stream</code> or an earlier <code>tasks/resubscribe</code>) was interrupted. Requires the server to have <code>AgentCard.capabilities.streaming: true</code>.</p>
 <p>The purpose is to resume receiving <em>subsequent</em> updates. The server's behavior regarding events missed during the disconnection period (e.g., whether it attempts to backfill some missed events or only sends new ones from the point of resubscription) is implementation-dependent and not strictly defined by this specification.</p>

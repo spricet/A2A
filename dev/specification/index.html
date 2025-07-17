@@ -128,28 +128,6 @@
     </div>
     <div data-md-component="announce">
       
-        <aside class="md-banner">
-          <div class="md-banner__inner md-grid md-typeset">
-            
-              <button class="md-banner__button md-icon" aria-label="Don't show this again">
-                
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-              </button>
-            
-            
-  <div class="announce">
-    <p>
-      Join us on July 12-13 at the Weights & Biases office in San Francisco for a
-      <a href="https://lu.ma/weavehacks" class="md-button md-button--primary">A2A/MCP Hackathon</a>
-    </p>
-  </div>
-
-          </div>
-          
-            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
-          
-        </aside>
-      
     </div>
     
     
@@ -3373,7 +3351,7 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 <h2 id="6-protocol-data-objects">6. Protocol Data Objects<a class="headerlink" href="#6-protocol-data-objects" title="Permanent link">&para;</a></h2>
 <p>These objects define the structure of data exchanged within the JSON-RPC methods of the A2A protocol.</p>
 <h3 id="61-task-object">6.1. <code>Task</code> Object<a class="headerlink" href="#61-task-object" title="Permanent link">&para;</a></h3>
-<p>Represents the stateful unit of work being processed by the A2A Server for an A2A Client. A task encapsulates the entire interaction related to a specific goal or request. A task which has reached a terminal state (completed, canceled, rejected, or failed) can't be restarted. For more information, refer to the <a href="../topics/life-of-a-task/">Life of a Task guide</a>.</p>
+<p>Represents the stateful unit of work being processed by the A2A Server for an A2A Client. A task encapsulates the entire interaction related to a specific goal or request. A task which has reached a terminal state (completed, canceled, rejected, or failed) can't be restarted. Tasks in completed state SHOULD use artifacts for returning the generated output to the clients. For more information, refer to the <a href="../topics/life-of-a-task/">Life of a Task guide</a>.</p>
 <div class="language-ts no-copy highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">Task</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="cm">/** Unique identifier for the task */</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
@@ -3694,7 +3672,7 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-29-13"><a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a><span class="cm">/**Configuration for the send message request. */</span>
 </span><span id="__span-29-14"><a id="__codelineno-29-14" name="__codelineno-29-14" href="#__codelineno-29-14"></a><span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">MessageSendConfiguration</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-29-15"><a id="__codelineno-29-15" name="__codelineno-29-15" href="#__codelineno-29-15"></a><span class="w">  </span><span class="cm">/** Accepted output modalities by the client. */</span>
-</span><span id="__span-29-16"><a id="__codelineno-29-16" name="__codelineno-29-16" href="#__codelineno-29-16"></a><span class="w">  </span><span class="nx">acceptedOutputModes</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[];</span>
+</span><span id="__span-29-16"><a id="__codelineno-29-16" name="__codelineno-29-16" href="#__codelineno-29-16"></a><span class="w">  </span><span class="nx">acceptedOutputModes?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[];</span>
 </span><span id="__span-29-17"><a id="__codelineno-29-17" name="__codelineno-29-17" href="#__codelineno-29-17"></a><span class="w">  </span><span class="cm">/** Number of recent messages to be retrieved. */</span>
 </span><span id="__span-29-18"><a id="__codelineno-29-18" name="__codelineno-29-18" href="#__codelineno-29-18"></a><span class="w">  </span><span class="nx">historyLength?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
 </span><span id="__span-29-19"><a id="__codelineno-29-19" name="__codelineno-29-19" href="#__codelineno-29-19"></a><span class="w">  </span><span class="cm">/** Where the server should send notifications when disconnected. */</span>

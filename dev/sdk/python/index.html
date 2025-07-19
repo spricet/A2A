@@ -9369,6 +9369,8 @@ store and retrieve credentials...</p>
 
     <div class="doc doc-contents ">
 
+        <p>A discriminated union of all standard JSON-RPC and A2A-specific error types.</p>
+
     </div>
 
 </div>
@@ -9432,7 +9434,7 @@ store and retrieve credentials...</p>
 
     <div class="doc doc-contents ">
 
-        <p>A2A supported request types</p>
+        <p>A discriminated union representing all possible JSON-RPC 2.0 requests supported by the A2A specification.</p>
 
     </div>
 
@@ -9464,7 +9466,7 @@ store and retrieve credentials...</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>API Key security scheme.</p>
+        <p>Defines a security scheme using an API key.</p>
 
 
 
@@ -9500,7 +9502,7 @@ store and retrieve credentials...</p>
 
     <div class="doc doc-contents ">
 
-        <p>Description of this security scheme.</p>
+        <p>An optional description for the security scheme.</p>
 
     </div>
 
@@ -9523,7 +9525,7 @@ store and retrieve credentials...</p>
 
     <div class="doc doc-contents ">
 
-        <p>The location of the API key. Valid values are "query", "header", or "cookie".</p>
+        <p>The location of the API key.</p>
 
     </div>
 
@@ -9566,7 +9568,7 @@ store and retrieve credentials...</p>
 
     <div class="doc doc-contents ">
 
-        <p>The name of the header, query or cookie parameter to be used.</p>
+        <p>The name of the header, query, or cookie parameter to be used.</p>
 
     </div>
 
@@ -9588,6 +9590,8 @@ store and retrieve credentials...</p>
 
 
     <div class="doc doc-contents ">
+
+        <p>The type of the security scheme. Must be 'apiKey'.</p>
 
     </div>
 
@@ -9655,7 +9659,7 @@ store and retrieve credentials...</p>
 
     <div class="doc doc-contents ">
 
-        <p>extensions supported by this agent.</p>
+        <p>A list of protocol extensions supported by the agent.</p>
 
     </div>
 
@@ -9699,7 +9703,7 @@ store and retrieve credentials...</p>
 
     <div class="doc doc-contents ">
 
-        <p>true if the agent can notify updates to client.</p>
+        <p>Indicates if the agent supports sending push notifications for asynchronous task updates.</p>
 
     </div>
 
@@ -9722,7 +9726,7 @@ store and retrieve credentials...</p>
 
     <div class="doc doc-contents ">
 
-        <p>true if the agent exposes status change history for tasks.</p>
+        <p>Indicates if the agent provides a history of state transitions for a task.</p>
 
     </div>
 
@@ -9745,7 +9749,7 @@ store and retrieve credentials...</p>
 
     <div class="doc doc-contents ">
 
-        <p>true if the agent supports SSE.</p>
+        <p>Indicates if the agent supports Server-Sent Events (SSE) for streaming responses.</p>
 
     </div>
 
@@ -9777,11 +9781,9 @@ store and retrieve credentials...</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>An AgentCard conveys key information:
-- Overall details (version, name, description, uses)
-- Skills: A set of capabilities the agent can perform
-- Default modalities/content types supported by the agent.
-- Authentication requirements</p>
+        <p>The AgentCard is a self-describing manifest for an agent. It provides essential
+metadata including the agent's identity, capabilities, skills, supported
+communication methods, and security requirements.</p>
 
 
 
@@ -9817,8 +9819,8 @@ store and retrieve credentials...</p>
 
     <div class="doc doc-contents ">
 
-        <p>Announcement of additional supported transports. Client can use any of
-the supported transports.</p>
+        <p>A list of additional supported interfaces (transport and URL combinations).
+A client can use any of these to communicate with the agent.</p>
 
     </div>
 
@@ -9840,7 +9842,7 @@ the supported transports.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Optional capabilities supported by the agent.</p>
+        <p>A declaration of optional capabilities supported by the agent.</p>
 
     </div>
 
@@ -9862,8 +9864,8 @@ the supported transports.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The set of interaction modes that the agent supports across all skills. This can be overridden per-skill.
-Supported media types for input.</p>
+        <p>Default set of supported input MIME types for all skills, which can be
+overridden on a per-skill basis.</p>
 
     </div>
 
@@ -9885,7 +9887,8 @@ Supported media types for input.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Supported media types for output.</p>
+        <p>Default set of supported output MIME types for all skills, which can be
+overridden on a per-skill basis.</p>
 
     </div>
 
@@ -9908,8 +9911,8 @@ Supported media types for input.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A human-readable description of the agent. Used to assist users and
-other agents in understanding what the agent can do.</p>
+        <p>A human-readable description of the agent, assisting users and other agents
+in understanding its purpose.</p>
 
     </div>
 
@@ -9932,7 +9935,7 @@ other agents in understanding what the agent can do.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A URL to documentation for the agent.</p>
+        <p>An optional URL to the agent's documentation.</p>
 
     </div>
 
@@ -9955,7 +9958,7 @@ other agents in understanding what the agent can do.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A URL to an icon for the agent.</p>
+        <p>An optional URL to an icon for the agent.</p>
 
     </div>
 
@@ -9999,7 +10002,7 @@ other agents in understanding what the agent can do.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Human readable name of the agent.</p>
+        <p>A human-readable name for the agent.</p>
 
     </div>
 
@@ -10022,7 +10025,7 @@ other agents in understanding what the agent can do.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The transport of the preferred endpoint. If empty, defaults to JSONRPC.</p>
+        <p>The transport protocol for the preferred endpoint. Defaults to 'JSONRPC' if not specified.</p>
 
     </div>
 
@@ -10033,7 +10036,7 @@ other agents in understanding what the agent can do.</p>
 
 
 <h3 id="a2a.types.AgentCard.protocolVersion" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">protocolVersion</span> <span class="o">=</span> <span class="s1">&#39;0.2.5&#39;</span></code>
+            <code class="highlight language-python"><span class="n">protocolVersion</span> <span class="o">=</span> <span class="s1">&#39;0.2.6&#39;</span></code>
 
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
@@ -10068,7 +10071,7 @@ other agents in understanding what the agent can do.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The service provider of the agent</p>
+        <p>Information about the agent's service provider.</p>
 
     </div>
 
@@ -10091,7 +10094,8 @@ other agents in understanding what the agent can do.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Security requirements for contacting the agent.</p>
+        <p>A list of security requirement objects that apply to all agent interactions. Each object
+lists security schemes that can be used. Follows the OpenAPI 3.0 Security Requirement Object.</p>
 
     </div>
 
@@ -10114,7 +10118,8 @@ other agents in understanding what the agent can do.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Security scheme details used for authenticating with this agent.</p>
+        <p>A declaration of the security schemes available to authorize requests. The key is the
+scheme name. Follows the OpenAPI 3.0 Security Scheme Object.</p>
 
     </div>
 
@@ -10136,7 +10141,7 @@ other agents in understanding what the agent can do.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Skills are a unit of capability that an agent can perform.</p>
+        <p>The set of skills, or distinct capabilities, that the agent can perform.</p>
 
     </div>
 
@@ -10159,8 +10164,8 @@ other agents in understanding what the agent can do.</p>
 
     <div class="doc doc-contents ">
 
-        <p>true if the agent supports providing an extended agent card when the user is authenticated.
-Defaults to false if not specified.</p>
+        <p>If true, the agent can provide an extended agent card with additional details
+to authenticated users. Defaults to false.</p>
 
     </div>
 
@@ -10182,8 +10187,7 @@ Defaults to false if not specified.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A URL to the address the agent is hosted at. This represents the
-preferred endpoint as declared by the agent.</p>
+        <p>The preferred endpoint URL for interacting with the agent.</p>
 
     </div>
 
@@ -10206,7 +10210,7 @@ preferred endpoint as declared by the agent.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The version of the agent - format is up to the provider.</p>
+        <p>The agent's own version number. The format is defined by the provider.</p>
 
     </div>
 
@@ -10238,7 +10242,7 @@ preferred endpoint as declared by the agent.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>A declaration of an extension supported by an Agent.</p>
+        <p>A declaration of a protocol extension supported by an Agent.</p>
 
 
 
@@ -10274,7 +10278,7 @@ preferred endpoint as declared by the agent.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A description of how this agent uses this extension.</p>
+        <p>A human-readable description of how this agent uses the extension.</p>
 
     </div>
 
@@ -10318,7 +10322,7 @@ preferred endpoint as declared by the agent.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Optional configuration for the extension.</p>
+        <p>Optional, extension-specific configuration parameters.</p>
 
     </div>
 
@@ -10341,7 +10345,8 @@ preferred endpoint as declared by the agent.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Whether the client must follow specific requirements of the extension.</p>
+        <p>If true, the client must understand and comply with the extension's requirements
+to interact with the agent.</p>
 
     </div>
 
@@ -10363,7 +10368,7 @@ preferred endpoint as declared by the agent.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The URI of the extension.</p>
+        <p>The unique URI identifying the extension.</p>
 
     </div>
 
@@ -10395,8 +10400,7 @@ preferred endpoint as declared by the agent.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>AgentInterface provides a declaration of a combination of the
-target url and the supported transport to interact with the agent.</p>
+        <p>Declares a combination of a target URL and a transport protocol for interacting with the agent.</p>
 
 
 
@@ -10452,9 +10456,8 @@ target url and the supported transport to interact with the agent.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The transport supported this url. This is an open form string, to be
-easily extended for many transport protocols. The core ones officially
-supported are JSONRPC, GRPC and HTTP+JSON.</p>
+        <p>The transport protocol supported at this URL. This is a string to allow for future
+extension. Core supported transports include 'JSONRPC', 'GRPC', and 'HTTP+JSON'.</p>
 
     </div>
 
@@ -10475,6 +10478,8 @@ supported are JSONRPC, GRPC and HTTP+JSON.</p>
 
 
     <div class="doc doc-contents ">
+
+        <p>The URL where this interface is available.</p>
 
     </div>
 
@@ -10562,7 +10567,7 @@ supported are JSONRPC, GRPC and HTTP+JSON.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Agent provider's organization name.</p>
+        <p>The name of the agent provider's organization.</p>
 
     </div>
 
@@ -10584,7 +10589,7 @@ supported are JSONRPC, GRPC and HTTP+JSON.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Agent provider's URL.</p>
+        <p>A URL for the agent provider's website or relevant documentation.</p>
 
     </div>
 
@@ -10616,7 +10621,7 @@ supported are JSONRPC, GRPC and HTTP+JSON.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Represents a unit of capability that an agent can perform.</p>
+        <p>Represents a distinct capability or function that an agent can perform.</p>
 
 
 
@@ -10651,8 +10656,8 @@ supported are JSONRPC, GRPC and HTTP+JSON.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Description of the skill - will be used by the client or a human
-as a hint to understand what the skill does.</p>
+        <p>A detailed description of the skill, intended to help clients or users
+understand its purpose and functionality.</p>
 
     </div>
 
@@ -10675,8 +10680,8 @@ as a hint to understand what the skill does.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The set of example scenarios that the skill can perform.
-Will be used by the client as a hint to understand how the skill can be used.</p>
+        <p>Example prompts or scenarios that this skill can handle. Provides a hint to
+the client on how to use the skill.</p>
 
     </div>
 
@@ -10698,7 +10703,7 @@ Will be used by the client as a hint to understand how the skill can be used.</p
 
     <div class="doc doc-contents ">
 
-        <p>Unique identifier for the agent's skill.</p>
+        <p>A unique identifier for the agent's skill.</p>
 
     </div>
 
@@ -10721,9 +10726,7 @@ Will be used by the client as a hint to understand how the skill can be used.</p
 
     <div class="doc doc-contents ">
 
-        <p>The set of interaction modes that the skill supports
-(if different than the default).
-Supported media types for input.</p>
+        <p>The set of supported input MIME types for this skill, overriding the agent's defaults.</p>
 
     </div>
 
@@ -10766,7 +10769,7 @@ Supported media types for input.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Human readable name of the skill.</p>
+        <p>A human-readable name for the skill.</p>
 
     </div>
 
@@ -10789,7 +10792,7 @@ Supported media types for input.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Supported media types for output.</p>
+        <p>The set of supported output MIME types for this skill, overriding the agent's defaults.</p>
 
     </div>
 
@@ -10812,7 +10815,7 @@ Supported media types for input.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Set of tagwords describing classes of capabilities for this specific skill.</p>
+        <p>A set of keywords describing the skill's capabilities.</p>
 
     </div>
 
@@ -10844,7 +10847,7 @@ Supported media types for input.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Represents an artifact generated for a task.</p>
+        <p>Represents a file, data structure, or other resource generated by an agent during a task.</p>
 
 
 
@@ -10879,7 +10882,7 @@ Supported media types for input.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Unique identifier for the artifact.</p>
+        <p>A unique identifier for the artifact within the scope of the task.</p>
 
     </div>
 
@@ -10902,7 +10905,7 @@ Supported media types for input.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Optional description for the artifact.</p>
+        <p>An optional, human-readable description of the artifact.</p>
 
     </div>
 
@@ -10925,7 +10928,7 @@ Supported media types for input.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The URIs of extensions that are present or contributed to this Artifact.</p>
+        <p>The URIs of extensions that are relevant to this artifact.</p>
 
     </div>
 
@@ -10948,7 +10951,7 @@ Supported media types for input.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Extension metadata.</p>
+        <p>Optional metadata for extensions. The key is an extension-specific identifier.</p>
 
     </div>
 
@@ -10992,7 +10995,7 @@ Supported media types for input.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Optional name for the artifact.</p>
+        <p>An optional, human-readable name for the artifact.</p>
 
     </div>
 
@@ -11014,7 +11017,7 @@ Supported media types for input.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Artifact parts.</p>
+        <p>An array of content parts that make up the artifact.</p>
 
     </div>
 
@@ -11046,7 +11049,7 @@ Supported media types for input.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Configuration details for a supported OAuth Flow</p>
+        <p>Defines configuration details for the OAuth 2.0 Authorization Code flow.</p>
 
 
 
@@ -11081,8 +11084,8 @@ Supported media types for input.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The authorization URL to be used for this flow. This MUST be in the form of a URL. The OAuth2
-standard requires the use of TLS</p>
+        <p>The authorization URL to be used for this flow.
+This MUST be a URL and use TLS.</p>
 
     </div>
 
@@ -11126,8 +11129,8 @@ standard requires the use of TLS</p>
 
     <div class="doc doc-contents ">
 
-        <p>The URL to be used for obtaining refresh tokens. This MUST be in the form of a URL. The OAuth2
-standard requires the use of TLS.</p>
+        <p>The URL to be used for obtaining refresh tokens.
+This MUST be a URL and use TLS.</p>
 
     </div>
 
@@ -11149,8 +11152,8 @@ standard requires the use of TLS.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The available scopes for the OAuth2 security scheme. A map between the scope name and a short
-description for it. The map MAY be empty.</p>
+        <p>The available scopes for the OAuth2 security scheme. A map between the scope
+name and a short description for it.</p>
 
     </div>
 
@@ -11172,8 +11175,8 @@ description for it. The map MAY be empty.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The token URL to be used for this flow. This MUST be in the form of a URL. The OAuth2 standard
-requires the use of TLS.</p>
+        <p>The token URL to be used for this flow.
+This MUST be a URL and use TLS.</p>
 
     </div>
 
@@ -11205,7 +11208,7 @@ requires the use of TLS.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>JSON-RPC request model for the 'tasks/cancel' method.</p>
+        <p>Represents a JSON-RPC request for the <code>tasks/cancel</code> method.</p>
 
 
 
@@ -11240,8 +11243,7 @@ requires the use of TLS.</p>
 
     <div class="doc doc-contents ">
 
-        <p>An identifier established by the Client that MUST contain a String, Number.
-Numbers SHOULD NOT contain fractional parts.</p>
+        <p>The identifier for this request.</p>
 
     </div>
 
@@ -11264,7 +11266,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Specifies the version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
+        <p>The version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
 
     </div>
 
@@ -11287,7 +11289,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A String containing the name of the method to be invoked.</p>
+        <p>The method name. Must be 'tasks/cancel'.</p>
 
     </div>
 
@@ -11330,7 +11332,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Structured value that holds the parameter values to be used during the invocation of the method.</p>
+        <p>The parameters identifying the task to cancel.</p>
 
     </div>
 
@@ -11395,7 +11397,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>JSON-RPC response for the 'tasks/cancel' method.</p>
+        <p>Represents a JSON-RPC response for the <code>tasks/cancel</code> method.</p>
 
     </div>
 
@@ -11427,7 +11429,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>JSON-RPC success response model for the 'tasks/cancel' method.</p>
+        <p>Represents a successful JSON-RPC response for the <code>tasks/cancel</code> method.</p>
 
 
 
@@ -11463,8 +11465,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>An identifier established by the Client that MUST contain a String, Number.
-Numbers SHOULD NOT contain fractional parts.</p>
+        <p>The identifier established by the client.</p>
 
     </div>
 
@@ -11487,7 +11488,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Specifies the version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
+        <p>The version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
 
     </div>
 
@@ -11530,7 +11531,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The result object on success.</p>
+        <p>The result, containing the final state of the canceled Task object.</p>
 
     </div>
 
@@ -11562,7 +11563,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Configuration details for a supported OAuth Flow</p>
+        <p>Defines configuration details for the OAuth 2.0 Client Credentials flow.</p>
 
 
 
@@ -11619,8 +11620,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The URL to be used for obtaining refresh tokens. This MUST be in the form of a URL. The OAuth2
-standard requires the use of TLS.</p>
+        <p>The URL to be used for obtaining refresh tokens. This MUST be a URL.</p>
 
     </div>
 
@@ -11642,8 +11642,8 @@ standard requires the use of TLS.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The available scopes for the OAuth2 security scheme. A map between the scope name and a short
-description for it. The map MAY be empty.</p>
+        <p>The available scopes for the OAuth2 security scheme. A map between the scope
+name and a short description for it.</p>
 
     </div>
 
@@ -11665,8 +11665,7 @@ description for it. The map MAY be empty.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The token URL to be used for this flow. This MUST be in the form of a URL. The OAuth2 standard
-requires the use of TLS.</p>
+        <p>The token URL to be used for this flow. This MUST be a URL.</p>
 
     </div>
 
@@ -11698,7 +11697,8 @@ requires the use of TLS.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>A2A specific error indicating incompatible content types between request and agent capabilities.</p>
+        <p>An A2A-specific error indicating an incompatibility between the requested
+content types and the agent's capabilities.</p>
 
 
 
@@ -11734,7 +11734,7 @@ requires the use of TLS.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Number that indicates the error type that occurred.</p>
+        <p>The error code for an unsupported content type.</p>
 
     </div>
 
@@ -11757,7 +11757,7 @@ requires the use of TLS.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Primitive or Structured value that contains additional information about the error.
+        <p>A primitive or structured value containing additional information about the error.
 This may be omitted.</p>
 
     </div>
@@ -11781,7 +11781,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A String providing a short description of the error.</p>
+        <p>The error message.</p>
 
     </div>
 
@@ -11834,7 +11834,7 @@ This may be omitted.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Represents a structured data segment within a message part.</p>
+        <p>Represents a structured data segment (e.g., JSON) within a message or artifact.</p>
 
 
 
@@ -11869,7 +11869,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Structured data content</p>
+        <p>The structured data content.</p>
 
     </div>
 
@@ -11892,7 +11892,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Part type - data for DataParts</p>
+        <p>The type of this part, used as a discriminator. Always 'data'.</p>
 
     </div>
 
@@ -11915,7 +11915,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Optional metadata associated with the part.</p>
+        <p>Optional metadata associated with this part.</p>
 
     </div>
 
@@ -11968,7 +11968,7 @@ This may be omitted.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Parameters for removing pushNotificationConfiguration associated with a Task</p>
+        <p>Defines parameters for deleting a specific push notification configuration for a task.</p>
 
 
 
@@ -12003,7 +12003,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Task id.</p>
+        <p>The unique identifier of the task.</p>
 
     </div>
 
@@ -12025,6 +12025,8 @@ This may be omitted.</p>
 
 
     <div class="doc doc-contents ">
+
+        <p>Optional metadata associated with the request.</p>
 
     </div>
 
@@ -12067,6 +12069,8 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
+        <p>The ID of the push notification configuration to delete.</p>
+
     </div>
 
 </div>
@@ -12097,7 +12101,7 @@ This may be omitted.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>JSON-RPC request model for the 'tasks/pushNotificationConfig/delete' method.</p>
+        <p>Represents a JSON-RPC request for the <code>tasks/pushNotificationConfig/delete</code> method.</p>
 
 
 
@@ -12132,8 +12136,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>An identifier established by the Client that MUST contain a String, Number.
-Numbers SHOULD NOT contain fractional parts.</p>
+        <p>The identifier for this request.</p>
 
     </div>
 
@@ -12156,7 +12159,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Specifies the version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
+        <p>The version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
 
     </div>
 
@@ -12179,7 +12182,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A String containing the name of the method to be invoked.</p>
+        <p>The method name. Must be 'tasks/pushNotificationConfig/delete'.</p>
 
     </div>
 
@@ -12222,7 +12225,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Structured value that holds the parameter values to be used during the invocation of the method.</p>
+        <p>The parameters identifying the push notification configuration to delete.</p>
 
     </div>
 
@@ -12287,7 +12290,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>JSON-RPC response for the 'tasks/pushNotificationConfig/delete' method.</p>
+        <p>Represents a JSON-RPC response for the <code>tasks/pushNotificationConfig/delete</code> method.</p>
 
     </div>
 
@@ -12319,7 +12322,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>JSON-RPC success response model for the 'tasks/pushNotificationConfig/delete' method.</p>
+        <p>Represents a successful JSON-RPC response for the <code>tasks/pushNotificationConfig/delete</code> method.</p>
 
 
 
@@ -12355,8 +12358,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>An identifier established by the Client that MUST contain a String, Number.
-Numbers SHOULD NOT contain fractional parts.</p>
+        <p>The identifier established by the client.</p>
 
     </div>
 
@@ -12379,7 +12381,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Specifies the version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
+        <p>The version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
 
     </div>
 
@@ -12422,7 +12424,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The result object on success.</p>
+        <p>The result is null on successful deletion.</p>
 
     </div>
 
@@ -12454,7 +12456,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Represents the base entity for FileParts</p>
+        <p>Defines base properties for a file.</p>
 
 
 
@@ -12490,7 +12492,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Optional mimeType for the file</p>
+        <p>The MIME type of the file (e.g., "application/pdf").</p>
 
     </div>
 
@@ -12534,7 +12536,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Optional name for the file</p>
+        <p>An optional name for the file (e.g., "document.pdf").</p>
 
     </div>
 
@@ -12566,7 +12568,8 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Represents a File segment within parts.</p>
+        <p>Represents a file segment within a message or artifact. The file content can be
+provided either directly as bytes or as a URI.</p>
 
 
 
@@ -12601,7 +12604,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>File content either as url or bytes</p>
+        <p>The file content, represented as either a URI or as base64-encoded bytes.</p>
 
     </div>
 
@@ -12624,7 +12627,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Part type - file for FileParts</p>
+        <p>The type of this part, used as a discriminator. Always 'file'.</p>
 
     </div>
 
@@ -12647,7 +12650,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Optional metadata associated with the part.</p>
+        <p>Optional metadata associated with this part.</p>
 
     </div>
 
@@ -12700,7 +12703,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Define the variant where 'bytes' is present and 'uri' is absent</p>
+        <p>Represents a file with its content provided directly as a base64-encoded string.</p>
 
 
 
@@ -12735,7 +12738,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>base64 encoded content of the file</p>
+        <p>The base64-encoded content of the file.</p>
 
     </div>
 
@@ -12758,7 +12761,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Optional mimeType for the file</p>
+        <p>The MIME type of the file (e.g., "application/pdf").</p>
 
     </div>
 
@@ -12802,7 +12805,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Optional name for the file</p>
+        <p>An optional name for the file (e.g., "document.pdf").</p>
 
     </div>
 
@@ -12834,7 +12837,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Define the variant where 'uri' is present and 'bytes' is absent</p>
+        <p>Represents a file with its content located at a specific URI.</p>
 
 
 
@@ -12870,7 +12873,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Optional mimeType for the file</p>
+        <p>The MIME type of the file (e.g., "application/pdf").</p>
 
     </div>
 
@@ -12914,7 +12917,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Optional name for the file</p>
+        <p>An optional name for the file (e.g., "document.pdf").</p>
 
     </div>
 
@@ -12936,7 +12939,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>URL for the File content</p>
+        <p>A URL pointing to the file's content.</p>
 
     </div>
 
@@ -12968,7 +12971,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Parameters for fetching a pushNotificationConfiguration associated with a Task</p>
+        <p>Defines parameters for fetching a specific push notification configuration for a task.</p>
 
 
 
@@ -13003,7 +13006,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Task id.</p>
+        <p>The unique identifier of the task.</p>
 
     </div>
 
@@ -13025,6 +13028,8 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
 
     <div class="doc doc-contents ">
+
+        <p>Optional metadata associated with the request.</p>
 
     </div>
 
@@ -13068,6 +13073,8 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
+        <p>The ID of the push notification configuration to retrieve.</p>
+
     </div>
 
 </div>
@@ -13098,7 +13105,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>JSON-RPC request model for the 'tasks/pushNotificationConfig/get' method.</p>
+        <p>Represents a JSON-RPC request for the <code>tasks/pushNotificationConfig/get</code> method.</p>
 
 
 
@@ -13133,8 +13140,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>An identifier established by the Client that MUST contain a String, Number.
-Numbers SHOULD NOT contain fractional parts.</p>
+        <p>The identifier for this request.</p>
 
     </div>
 
@@ -13157,7 +13163,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Specifies the version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
+        <p>The version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
 
     </div>
 
@@ -13180,7 +13186,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A String containing the name of the method to be invoked.</p>
+        <p>The method name. Must be 'tasks/pushNotificationConfig/get'.</p>
 
     </div>
 
@@ -13223,8 +13229,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Structured value that holds the parameter values to be used during the invocation of the method.
-TaskIdParams type is deprecated for this method use <code>GetTaskPushNotificationConfigParams</code> instead.</p>
+        <p>The parameters for getting a push notification configuration.</p>
 
     </div>
 
@@ -13289,7 +13294,7 @@ TaskIdParams type is deprecated for this method use <code>GetTaskPushNotificatio
 
     <div class="doc doc-contents ">
 
-        <p>JSON-RPC response for the 'tasks/pushNotificationConfig/set' method.</p>
+        <p>Represents a JSON-RPC response for the <code>tasks/pushNotificationConfig/get</code> method.</p>
 
     </div>
 
@@ -13321,7 +13326,7 @@ TaskIdParams type is deprecated for this method use <code>GetTaskPushNotificatio
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>JSON-RPC success response model for the 'tasks/pushNotificationConfig/get' method.</p>
+        <p>Represents a successful JSON-RPC response for the <code>tasks/pushNotificationConfig/get</code> method.</p>
 
 
 
@@ -13357,8 +13362,7 @@ TaskIdParams type is deprecated for this method use <code>GetTaskPushNotificatio
 
     <div class="doc doc-contents ">
 
-        <p>An identifier established by the Client that MUST contain a String, Number.
-Numbers SHOULD NOT contain fractional parts.</p>
+        <p>The identifier established by the client.</p>
 
     </div>
 
@@ -13381,7 +13385,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Specifies the version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
+        <p>The version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
 
     </div>
 
@@ -13424,7 +13428,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The result object on success.</p>
+        <p>The result, containing the requested push notification configuration.</p>
 
     </div>
 
@@ -13456,7 +13460,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>JSON-RPC request model for the 'tasks/get' method.</p>
+        <p>Represents a JSON-RPC request for the <code>tasks/get</code> method.</p>
 
 
 
@@ -13491,8 +13495,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>An identifier established by the Client that MUST contain a String, Number.
-Numbers SHOULD NOT contain fractional parts.</p>
+        <p>The identifier for this request.</p>
 
     </div>
 
@@ -13515,7 +13518,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Specifies the version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
+        <p>The version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
 
     </div>
 
@@ -13538,7 +13541,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A String containing the name of the method to be invoked.</p>
+        <p>The method name. Must be 'tasks/get'.</p>
 
     </div>
 
@@ -13581,7 +13584,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Structured value that holds the parameter values to be used during the invocation of the method.</p>
+        <p>The parameters for querying a task.</p>
 
     </div>
 
@@ -13646,7 +13649,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>JSON-RPC response for the 'tasks/get' method.</p>
+        <p>Represents a JSON-RPC response for the <code>tasks/get</code> method.</p>
 
     </div>
 
@@ -13678,7 +13681,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>JSON-RPC success response for the 'tasks/get' method.</p>
+        <p>Represents a successful JSON-RPC response for the <code>tasks/get</code> method.</p>
 
 
 
@@ -13714,8 +13717,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>An identifier established by the Client that MUST contain a String, Number.
-Numbers SHOULD NOT contain fractional parts.</p>
+        <p>The identifier established by the client.</p>
 
     </div>
 
@@ -13738,7 +13740,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Specifies the version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
+        <p>The version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
 
     </div>
 
@@ -13781,7 +13783,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The result object on success.</p>
+        <p>The result, containing the requested Task object.</p>
 
     </div>
 
@@ -13813,7 +13815,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>HTTP Authentication security scheme.</p>
+        <p>Defines a security scheme using HTTP authentication.</p>
 
 
 
@@ -13849,9 +13851,8 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A hint to the client to identify how the bearer token is formatted. Bearer tokens are usually
-generated by an authorization server, so this information is primarily for documentation
-purposes.</p>
+        <p>A hint to the client to identify how the bearer token is formatted (e.g., "JWT").
+This is primarily for documentation purposes.</p>
 
     </div>
 
@@ -13874,7 +13875,7 @@ purposes.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Description of this security scheme.</p>
+        <p>An optional description for the security scheme.</p>
 
     </div>
 
@@ -13917,9 +13918,9 @@ purposes.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The name of the HTTP Authentication scheme to be used in the Authorization header as defined
-in RFC7235. The values used SHOULD be registered in the IANA Authentication Scheme registry.
-The value is case-insensitive, as defined in RFC7235.</p>
+        <p>The name of the HTTP Authentication scheme to be used in the Authorization header,
+as defined in RFC7235 (e.g., "Bearer").
+This value should be registered in the IANA Authentication Scheme registry.</p>
 
     </div>
 
@@ -13941,6 +13942,8 @@ The value is case-insensitive, as defined in RFC7235.</p>
 
 
     <div class="doc doc-contents ">
+
+        <p>The type of the security scheme. Must be 'http'.</p>
 
     </div>
 
@@ -13972,7 +13975,7 @@ The value is case-insensitive, as defined in RFC7235.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Configuration details for a supported OAuth Flow</p>
+        <p>Defines configuration details for the OAuth 2.0 Implicit flow.</p>
 
 
 
@@ -14007,8 +14010,7 @@ The value is case-insensitive, as defined in RFC7235.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The authorization URL to be used for this flow. This MUST be in the form of a URL. The OAuth2
-standard requires the use of TLS</p>
+        <p>The authorization URL to be used for this flow. This MUST be a URL.</p>
 
     </div>
 
@@ -14052,8 +14054,7 @@ standard requires the use of TLS</p>
 
     <div class="doc doc-contents ">
 
-        <p>The URL to be used for obtaining refresh tokens. This MUST be in the form of a URL. The OAuth2
-standard requires the use of TLS.</p>
+        <p>The URL to be used for obtaining refresh tokens. This MUST be a URL.</p>
 
     </div>
 
@@ -14075,8 +14076,8 @@ standard requires the use of TLS.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The available scopes for the OAuth2 security scheme. A map between the scope name and a short
-description for it. The map MAY be empty.</p>
+        <p>The available scopes for the OAuth2 security scheme. A map between the scope
+name and a short description for it.</p>
 
     </div>
 
@@ -14108,7 +14109,7 @@ description for it. The map MAY be empty.</p>
               Bases: <code><span title="str">str</span></code>, <code><span title="enum.Enum">Enum</span></code></p>
 
 
-        <p>The location of the API key. Valid values are "query", "header", or "cookie".</p>
+        <p>The location of the API key.</p>
 
 
 
@@ -14216,7 +14217,7 @@ description for it. The map MAY be empty.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>JSON-RPC error indicating an internal JSON-RPC error on the server.</p>
+        <p>An error indicating an internal error on the server.</p>
 
 
 
@@ -14252,7 +14253,7 @@ description for it. The map MAY be empty.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Number that indicates the error type that occurred.</p>
+        <p>The error code for an internal server error.</p>
 
     </div>
 
@@ -14275,7 +14276,7 @@ description for it. The map MAY be empty.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Primitive or Structured value that contains additional information about the error.
+        <p>A primitive or structured value containing additional information about the error.
 This may be omitted.</p>
 
     </div>
@@ -14299,7 +14300,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A String providing a short description of the error.</p>
+        <p>The error message.</p>
 
     </div>
 
@@ -14352,7 +14353,8 @@ This may be omitted.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>A2A specific error indicating agent returned invalid response for the current method</p>
+        <p>An A2A-specific error indicating that the agent returned a response that
+does not conform to the specification for the current method.</p>
 
 
 
@@ -14388,7 +14390,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Number that indicates the error type that occurred.</p>
+        <p>The error code for an invalid agent response.</p>
 
     </div>
 
@@ -14411,7 +14413,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Primitive or Structured value that contains additional information about the error.
+        <p>A primitive or structured value containing additional information about the error.
 This may be omitted.</p>
 
     </div>
@@ -14435,7 +14437,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A String providing a short description of the error.</p>
+        <p>The error message.</p>
 
     </div>
 
@@ -14488,7 +14490,7 @@ This may be omitted.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>JSON-RPC error indicating invalid method parameter(s).</p>
+        <p>An error indicating that the method parameters are invalid.</p>
 
 
 
@@ -14524,7 +14526,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Number that indicates the error type that occurred.</p>
+        <p>The error code for an invalid parameters error.</p>
 
     </div>
 
@@ -14547,7 +14549,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Primitive or Structured value that contains additional information about the error.
+        <p>A primitive or structured value containing additional information about the error.
 This may be omitted.</p>
 
     </div>
@@ -14571,7 +14573,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A String providing a short description of the error.</p>
+        <p>The error message.</p>
 
     </div>
 
@@ -14624,7 +14626,7 @@ This may be omitted.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>JSON-RPC error indicating the JSON sent is not a valid Request object.</p>
+        <p>An error indicating that the JSON sent is not a valid Request object.</p>
 
 
 
@@ -14660,7 +14662,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Number that indicates the error type that occurred.</p>
+        <p>The error code for an invalid request.</p>
 
     </div>
 
@@ -14683,7 +14685,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Primitive or Structured value that contains additional information about the error.
+        <p>A primitive or structured value containing additional information about the error.
 This may be omitted.</p>
 
     </div>
@@ -14707,7 +14709,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A String providing a short description of the error.</p>
+        <p>The error message.</p>
 
     </div>
 
@@ -14760,7 +14762,7 @@ This may be omitted.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>JSON-RPC error indicating invalid JSON was received by the server.</p>
+        <p>An error indicating that the server received invalid JSON.</p>
 
 
 
@@ -14796,7 +14798,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Number that indicates the error type that occurred.</p>
+        <p>The error code for a JSON parse error.</p>
 
     </div>
 
@@ -14819,7 +14821,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Primitive or Structured value that contains additional information about the error.
+        <p>A primitive or structured value containing additional information about the error.
 This may be omitted.</p>
 
     </div>
@@ -14843,7 +14845,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A String providing a short description of the error.</p>
+        <p>The error message.</p>
 
     </div>
 
@@ -14896,8 +14898,7 @@ This may be omitted.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Represents a JSON-RPC 2.0 Error object.
-This is typically included in a JSONRPCErrorResponse when an error occurs.</p>
+        <p>Represents a JSON-RPC 2.0 Error object, included in an error response.</p>
 
 
 
@@ -14932,7 +14933,7 @@ This is typically included in a JSONRPCErrorResponse when an error occurs.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Number that indicates the error type that occurred.</p>
+        <p>A number that indicates the error type that occurred.</p>
 
     </div>
 
@@ -14955,7 +14956,7 @@ This is typically included in a JSONRPCErrorResponse when an error occurs.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Primitive or Structured value that contains additional information about the error.
+        <p>A primitive or structured value containing additional information about the error.
 This may be omitted.</p>
 
     </div>
@@ -14978,7 +14979,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A String providing a short description of the error.</p>
+        <p>A string providing a short description of the error.</p>
 
     </div>
 
@@ -15066,6 +15067,8 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
+        <p>An object describing the error that occurred.</p>
+
     </div>
 
 </div>
@@ -15087,8 +15090,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>An identifier established by the Client that MUST contain a String, Number.
-Numbers SHOULD NOT contain fractional parts.</p>
+        <p>The identifier established by the client.</p>
 
     </div>
 
@@ -15111,7 +15113,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Specifies the version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
+        <p>The version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
 
     </div>
 
@@ -15164,7 +15166,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Base interface for any JSON-RPC 2.0 request or response.</p>
+        <p>Defines the base structure for any JSON-RPC 2.0 request, response, or notification.</p>
 
 
 
@@ -15200,8 +15202,8 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>An identifier established by the Client that MUST contain a String, Number.
-Numbers SHOULD NOT contain fractional parts.</p>
+        <p>A unique identifier established by the client. It must be a String, a Number, or null.
+The server must reply with the same value in the response. This property is omitted for notifications.</p>
 
     </div>
 
@@ -15224,7 +15226,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Specifies the version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
+        <p>The version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
 
     </div>
 
@@ -15313,8 +15315,8 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>An identifier established by the Client that MUST contain a String, Number.
-Numbers SHOULD NOT contain fractional parts.</p>
+        <p>A unique identifier established by the client. It must be a String, a Number, or null.
+The server must reply with the same value in the response. This property is omitted for notifications.</p>
 
     </div>
 
@@ -15337,7 +15339,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Specifies the version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
+        <p>The version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
 
     </div>
 
@@ -15359,7 +15361,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A String containing the name of the method to be invoked.</p>
+        <p>A string containing the name of the method to be invoked.</p>
 
     </div>
 
@@ -15403,7 +15405,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Structured value that holds the parameter values to be used during the invocation of the method.</p>
+        <p>A structured value holding the parameter values to be used during the method invocation.</p>
 
     </div>
 
@@ -15468,7 +15470,8 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Represents a JSON-RPC 2.0 Response object.</p>
+        <p>A discriminated union representing all possible JSON-RPC 2.0 responses
+for the A2A specification methods.</p>
 
     </div>
 
@@ -15500,7 +15503,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Represents a JSON-RPC 2.0 Success Response object.</p>
+        <p>Represents a successful JSON-RPC 2.0 Response object.</p>
 
 
 
@@ -15536,8 +15539,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>An identifier established by the Client that MUST contain a String, Number.
-Numbers SHOULD NOT contain fractional parts.</p>
+        <p>The identifier established by the client.</p>
 
     </div>
 
@@ -15560,7 +15562,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Specifies the version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
+        <p>The version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
 
     </div>
 
@@ -15603,7 +15605,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The result object on success</p>
+        <p>The value of this member is determined by the method invoked on the Server.</p>
 
     </div>
 
@@ -15635,7 +15637,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Parameters for getting list of pushNotificationConfigurations associated with a Task</p>
+        <p>Defines parameters for listing all push notification configurations associated with a task.</p>
 
 
 
@@ -15670,7 +15672,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Task id.</p>
+        <p>The unique identifier of the task.</p>
 
     </div>
 
@@ -15692,6 +15694,8 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
 
     <div class="doc doc-contents ">
+
+        <p>Optional metadata associated with the request.</p>
 
     </div>
 
@@ -15744,7 +15748,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>JSON-RPC request model for the 'tasks/pushNotificationConfig/list' method.</p>
+        <p>Represents a JSON-RPC request for the <code>tasks/pushNotificationConfig/list</code> method.</p>
 
 
 
@@ -15779,8 +15783,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>An identifier established by the Client that MUST contain a String, Number.
-Numbers SHOULD NOT contain fractional parts.</p>
+        <p>The identifier for this request.</p>
 
     </div>
 
@@ -15803,7 +15806,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Specifies the version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
+        <p>The version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
 
     </div>
 
@@ -15826,7 +15829,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A String containing the name of the method to be invoked.</p>
+        <p>The method name. Must be 'tasks/pushNotificationConfig/list'.</p>
 
     </div>
 
@@ -15869,7 +15872,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Structured value that holds the parameter values to be used during the invocation of the method.</p>
+        <p>The parameters identifying the task whose configurations are to be listed.</p>
 
     </div>
 
@@ -15934,7 +15937,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>JSON-RPC response for the 'tasks/pushNotificationConfig/list' method.</p>
+        <p>Represents a JSON-RPC response for the <code>tasks/pushNotificationConfig/list</code> method.</p>
 
     </div>
 
@@ -15966,7 +15969,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>JSON-RPC success response model for the 'tasks/pushNotificationConfig/list' method.</p>
+        <p>Represents a successful JSON-RPC response for the <code>tasks/pushNotificationConfig/list</code> method.</p>
 
 
 
@@ -16002,8 +16005,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>An identifier established by the Client that MUST contain a String, Number.
-Numbers SHOULD NOT contain fractional parts.</p>
+        <p>The identifier established by the client.</p>
 
     </div>
 
@@ -16026,7 +16028,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Specifies the version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
+        <p>The version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
 
     </div>
 
@@ -16069,7 +16071,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The result object on success.</p>
+        <p>The result, containing an array of all push notification configurations for the task.</p>
 
     </div>
 
@@ -16101,7 +16103,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Represents a single message exchanged between user and agent.</p>
+        <p>Represents a single message in the conversation between a user and an agent.</p>
 
 
 
@@ -16137,7 +16139,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The context the message is associated with</p>
+        <p>The context identifier for this message, used to group related interactions.</p>
 
     </div>
 
@@ -16160,7 +16162,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The URIs of extensions that are present or contributed to this Message.</p>
+        <p>The URIs of extensions that are relevant to this message.</p>
 
     </div>
 
@@ -16183,7 +16185,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Event type</p>
+        <p>The type of this object, used as a discriminator. Always 'message' for a Message.</p>
 
     </div>
 
@@ -16205,7 +16207,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Identifier created by the message creator</p>
+        <p>A unique identifier for the message, typically a UUID, generated by the sender.</p>
 
     </div>
 
@@ -16228,7 +16230,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Extension metadata.</p>
+        <p>Optional metadata for extensions. The key is an extension-specific identifier.</p>
 
     </div>
 
@@ -16271,7 +16273,8 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Message content</p>
+        <p>An array of content parts that form the message body. A message can be
+composed of multiple parts of different types (e.g., text and files).</p>
 
     </div>
 
@@ -16294,7 +16297,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>List of tasks referenced as context by this message.</p>
+        <p>A list of other task IDs that this message references for additional context.</p>
 
     </div>
 
@@ -16316,7 +16319,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Message sender's role</p>
+        <p>Identifies the sender of the message. <code>user</code> for the client, <code>agent</code> for the service.</p>
 
     </div>
 
@@ -16339,7 +16342,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Identifier of task the message is related to</p>
+        <p>The identifier of the task this message is part of. Can be omitted for the first message of a new task.</p>
 
     </div>
 
@@ -16371,7 +16374,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Configuration for the send message request.</p>
+        <p>Defines configuration options for a <code>message/send</code> or <code>message/stream</code> request.</p>
 
 
 
@@ -16407,7 +16410,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Accepted output modalities by the client.</p>
+        <p>A list of output MIME types the client is prepared to accept in the response.</p>
 
     </div>
 
@@ -16430,7 +16433,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>If the server should treat the client as a blocking request.</p>
+        <p>If true, the client will wait for the task to complete. The server may reject this if the task is long-running.</p>
 
     </div>
 
@@ -16453,7 +16456,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Number of recent messages to be retrieved.</p>
+        <p>The number of most recent messages from the task's history to retrieve in the response.</p>
 
     </div>
 
@@ -16497,7 +16500,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Where the server should send notifications when disconnected.</p>
+        <p>Configuration for the agent to send push notifications for updates after the initial response.</p>
 
     </div>
 
@@ -16529,7 +16532,8 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Sent by the client to the agent as a request. May create, continue or restart a task.</p>
+        <p>Defines the parameters for a request to send a message to an agent. This can be used
+to create a new task, continue an existing one, or restart a task.</p>
 
 
 
@@ -16565,7 +16569,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Send message configuration.</p>
+        <p>Optional configuration for the send request.</p>
 
     </div>
 
@@ -16587,7 +16591,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The message being sent to the server.</p>
+        <p>The message object being sent to the agent.</p>
 
     </div>
 
@@ -16610,7 +16614,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Extension metadata.</p>
+        <p>Optional metadata for extensions.</p>
 
     </div>
 
@@ -16663,7 +16667,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>JSON-RPC error indicating the method does not exist or is not available.</p>
+        <p>An error indicating that the requested method does not exist or is not available.</p>
 
 
 
@@ -16699,7 +16703,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Number that indicates the error type that occurred.</p>
+        <p>The error code for a method not found error.</p>
 
     </div>
 
@@ -16722,7 +16726,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Primitive or Structured value that contains additional information about the error.
+        <p>A primitive or structured value containing additional information about the error.
 This may be omitted.</p>
 
     </div>
@@ -16746,7 +16750,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A String providing a short description of the error.</p>
+        <p>The error message.</p>
 
     </div>
 
@@ -16799,7 +16803,7 @@ This may be omitted.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>OAuth2.0 security scheme configuration.</p>
+        <p>Defines a security scheme using OAuth 2.0.</p>
 
 
 
@@ -16835,7 +16839,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Description of this security scheme.</p>
+        <p>An optional description for the security scheme.</p>
 
     </div>
 
@@ -16857,7 +16861,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>An object containing configuration information for the flow types supported.</p>
+        <p>An object containing configuration information for the supported OAuth 2.0 flows.</p>
 
     </div>
 
@@ -16901,6 +16905,8 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
+        <p>The type of the security scheme. Must be 'oauth2'.</p>
+
     </div>
 
 </div>
@@ -16931,7 +16937,7 @@ This may be omitted.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Allows configuration of the supported OAuth Flows</p>
+        <p>Defines the configuration for the supported OAuth 2.0 flows.</p>
 
 
 
@@ -16990,7 +16996,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Configuration for the OAuth Client Credentials flow. Previously called application in OpenAPI 2.0</p>
+        <p>Configuration for the OAuth Client Credentials flow. Previously called application in OpenAPI 2.0.</p>
 
     </div>
 
@@ -17013,7 +17019,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Configuration for the OAuth Implicit flow</p>
+        <p>Configuration for the OAuth Implicit flow.</p>
 
     </div>
 
@@ -17057,7 +17063,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Configuration for the OAuth Resource Owner Password flow</p>
+        <p>Configuration for the OAuth Resource Owner Password flow.</p>
 
     </div>
 
@@ -17089,7 +17095,7 @@ This may be omitted.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>OpenID Connect security scheme configuration.</p>
+        <p>Defines a security scheme using OpenID Connect.</p>
 
 
 
@@ -17125,7 +17131,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Description of this security scheme.</p>
+        <p>An optional description for the security scheme.</p>
 
     </div>
 
@@ -17168,7 +17174,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Well-known URL to discover the [[OpenID-Connect-Discovery]] provider metadata.</p>
+        <p>The OpenID Connect Discovery URL for the OIDC provider's metadata.</p>
 
     </div>
 
@@ -17190,6 +17196,8 @@ This may be omitted.</p>
 
 
     <div class="doc doc-contents ">
+
+        <p>The type of the security scheme. Must be 'openIdConnect'.</p>
 
     </div>
 
@@ -17254,7 +17262,8 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Represents a part of a message, which can be text, a file, or structured data.</p>
+        <p>A discriminated union representing a part of a message or artifact, which can
+be text, a file, or structured data.</p>
 
     </div>
 
@@ -17286,7 +17295,7 @@ This may be omitted.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Base properties common to all message parts.</p>
+        <p>Defines base properties common to all message or artifact parts.</p>
 
 
 
@@ -17322,7 +17331,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Optional metadata associated with the part.</p>
+        <p>Optional metadata associated with this part.</p>
 
     </div>
 
@@ -17375,7 +17384,7 @@ This may be omitted.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Configuration details for a supported OAuth Flow</p>
+        <p>Defines configuration details for the OAuth 2.0 Resource Owner Password flow.</p>
 
 
 
@@ -17432,8 +17441,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The URL to be used for obtaining refresh tokens. This MUST be in the form of a URL. The OAuth2
-standard requires the use of TLS.</p>
+        <p>The URL to be used for obtaining refresh tokens. This MUST be a URL.</p>
 
     </div>
 
@@ -17455,8 +17463,8 @@ standard requires the use of TLS.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The available scopes for the OAuth2 security scheme. A map between the scope name and a short
-description for it. The map MAY be empty.</p>
+        <p>The available scopes for the OAuth2 security scheme. A map between the scope
+name and a short description for it.</p>
 
     </div>
 
@@ -17478,8 +17486,7 @@ description for it. The map MAY be empty.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The token URL to be used for this flow. This MUST be in the form of a URL. The OAuth2 standard
-requires the use of TLS.</p>
+        <p>The token URL to be used for this flow. This MUST be a URL.</p>
 
     </div>
 
@@ -17511,7 +17518,7 @@ requires the use of TLS.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Defines authentication details for push notifications.</p>
+        <p>Defines authentication details for a push notification endpoint.</p>
 
 
 
@@ -17547,7 +17554,7 @@ requires the use of TLS.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Optional credentials</p>
+        <p>Optional credentials required by the push notification endpoint.</p>
 
     </div>
 
@@ -17590,7 +17597,7 @@ requires the use of TLS.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Supported authentication schemes - e.g. Basic, Bearer</p>
+        <p>A list of supported authentication schemes (e.g., 'Basic', 'Bearer').</p>
 
     </div>
 
@@ -17622,7 +17629,7 @@ requires the use of TLS.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Configuration for setting up push notifications for task updates.</p>
+        <p>Defines the configuration for setting up push notifications for task updates.</p>
 
 
 
@@ -17658,6 +17665,8 @@ requires the use of TLS.</p>
 
     <div class="doc doc-contents ">
 
+        <p>Optional authentication details for the agent to use when calling the notification URL.</p>
+
     </div>
 
 </div>
@@ -17679,7 +17688,8 @@ requires the use of TLS.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Push Notification ID - created by server to support multiple callbacks</p>
+        <p>A unique ID for the push notification configuration, created by the server
+to support multiple notification callbacks.</p>
 
     </div>
 
@@ -17723,7 +17733,7 @@ requires the use of TLS.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Token unique to this task/session.</p>
+        <p>A unique token for this task or session to validate incoming push notifications.</p>
 
     </div>
 
@@ -17745,7 +17755,7 @@ requires the use of TLS.</p>
 
     <div class="doc doc-contents ">
 
-        <p>URL for sending the push notifications.</p>
+        <p>The callback URL where the agent should send push notifications.</p>
 
     </div>
 
@@ -17777,7 +17787,7 @@ requires the use of TLS.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>A2A specific error indicating the agent does not support push notifications.</p>
+        <p>An A2A-specific error indicating that the agent does not support push notifications.</p>
 
 
 
@@ -17813,7 +17823,7 @@ requires the use of TLS.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Number that indicates the error type that occurred.</p>
+        <p>The error code for when push notifications are not supported.</p>
 
     </div>
 
@@ -17836,7 +17846,7 @@ requires the use of TLS.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Primitive or Structured value that contains additional information about the error.
+        <p>A primitive or structured value containing additional information about the error.
 This may be omitted.</p>
 
     </div>
@@ -17860,7 +17870,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A String providing a short description of the error.</p>
+        <p>The error message.</p>
 
     </div>
 
@@ -17913,7 +17923,7 @@ This may be omitted.</p>
               Bases: <code><span title="str">str</span></code>, <code><span title="enum.Enum">Enum</span></code></p>
 
 
-        <p>Message sender's role</p>
+        <p>Identifies the sender of the message. <code>user</code> for the client, <code>agent</code> for the service.</p>
 
 
 
@@ -18033,8 +18043,8 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Mirrors the OpenAPI Security Scheme Object
-(https://swagger.io/specification/#security-scheme-object)</p>
+        <p>Defines a security scheme that can be used to secure an agent's endpoints.
+This is a discriminated union type based on the OpenAPI 3.0 Security Scheme Object.</p>
 
     </div>
 
@@ -18066,7 +18076,7 @@ This may be omitted.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Base properties shared by all security schemes.</p>
+        <p>Defines base properties shared by all security scheme objects.</p>
 
 
 
@@ -18102,7 +18112,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Description of this security scheme.</p>
+        <p>An optional description for the security scheme.</p>
 
     </div>
 
@@ -18155,7 +18165,7 @@ This may be omitted.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>JSON-RPC request model for the 'message/send' method.</p>
+        <p>Represents a JSON-RPC request for the <code>message/send</code> method.</p>
 
 
 
@@ -18190,8 +18200,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>An identifier established by the Client that MUST contain a String, Number.
-Numbers SHOULD NOT contain fractional parts.</p>
+        <p>The identifier for this request.</p>
 
     </div>
 
@@ -18214,7 +18223,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Specifies the version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
+        <p>The version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
 
     </div>
 
@@ -18237,7 +18246,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A String containing the name of the method to be invoked.</p>
+        <p>The method name. Must be 'message/send'.</p>
 
     </div>
 
@@ -18280,7 +18289,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Structured value that holds the parameter values to be used during the invocation of the method.</p>
+        <p>The parameters for sending a message.</p>
 
     </div>
 
@@ -18345,7 +18354,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>JSON-RPC response model for the 'message/send' method.</p>
+        <p>Represents a JSON-RPC response for the <code>message/send</code> method.</p>
 
     </div>
 
@@ -18377,7 +18386,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>JSON-RPC success response model for the 'message/send' method.</p>
+        <p>Represents a successful JSON-RPC response for the <code>message/send</code> method.</p>
 
 
 
@@ -18413,8 +18422,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>An identifier established by the Client that MUST contain a String, Number.
-Numbers SHOULD NOT contain fractional parts.</p>
+        <p>The identifier established by the client.</p>
 
     </div>
 
@@ -18437,7 +18445,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Specifies the version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
+        <p>The version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
 
     </div>
 
@@ -18480,7 +18488,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The result object on success</p>
+        <p>The result, which can be a direct reply Message or the initial Task object.</p>
 
     </div>
 
@@ -18512,7 +18520,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>JSON-RPC request model for the 'message/stream' method.</p>
+        <p>Represents a JSON-RPC request for the <code>message/stream</code> method.</p>
 
 
 
@@ -18547,8 +18555,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>An identifier established by the Client that MUST contain a String, Number.
-Numbers SHOULD NOT contain fractional parts.</p>
+        <p>The identifier for this request.</p>
 
     </div>
 
@@ -18571,7 +18578,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Specifies the version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
+        <p>The version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
 
     </div>
 
@@ -18594,7 +18601,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A String containing the name of the method to be invoked.</p>
+        <p>The method name. Must be 'message/stream'.</p>
 
     </div>
 
@@ -18637,7 +18644,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Structured value that holds the parameter values to be used during the invocation of the method.</p>
+        <p>The parameters for sending a message.</p>
 
     </div>
 
@@ -18702,7 +18709,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>JSON-RPC response model for the 'message/stream' method.</p>
+        <p>Represents a JSON-RPC response for the <code>message/stream</code> method.</p>
 
     </div>
 
@@ -18734,7 +18741,8 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>JSON-RPC success response model for the 'message/stream' method.</p>
+        <p>Represents a successful JSON-RPC response for the <code>message/stream</code> method.
+The server may send multiple response objects for a single request.</p>
 
 
 
@@ -18770,8 +18778,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>An identifier established by the Client that MUST contain a String, Number.
-Numbers SHOULD NOT contain fractional parts.</p>
+        <p>The identifier established by the client.</p>
 
     </div>
 
@@ -18794,7 +18801,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Specifies the version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
+        <p>The version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
 
     </div>
 
@@ -18837,7 +18844,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The result object on success</p>
+        <p>The result, which can be a Message, Task, or a streaming update event.</p>
 
     </div>
 
@@ -18869,7 +18876,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>JSON-RPC request model for the 'tasks/pushNotificationConfig/set' method.</p>
+        <p>Represents a JSON-RPC request for the <code>tasks/pushNotificationConfig/set</code> method.</p>
 
 
 
@@ -18904,8 +18911,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>An identifier established by the Client that MUST contain a String, Number.
-Numbers SHOULD NOT contain fractional parts.</p>
+        <p>The identifier for this request.</p>
 
     </div>
 
@@ -18928,7 +18934,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Specifies the version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
+        <p>The version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
 
     </div>
 
@@ -18951,7 +18957,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A String containing the name of the method to be invoked.</p>
+        <p>The method name. Must be 'tasks/pushNotificationConfig/set'.</p>
 
     </div>
 
@@ -18994,7 +19000,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Structured value that holds the parameter values to be used during the invocation of the method.</p>
+        <p>The parameters for setting the push notification configuration.</p>
 
     </div>
 
@@ -19059,7 +19065,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>JSON-RPC response for the 'tasks/pushNotificationConfig/set' method.</p>
+        <p>Represents a JSON-RPC response for the <code>tasks/pushNotificationConfig/set</code> method.</p>
 
     </div>
 
@@ -19091,7 +19097,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>JSON-RPC success response model for the 'tasks/pushNotificationConfig/set' method.</p>
+        <p>Represents a successful JSON-RPC response for the <code>tasks/pushNotificationConfig/set</code> method.</p>
 
 
 
@@ -19127,8 +19133,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>An identifier established by the Client that MUST contain a String, Number.
-Numbers SHOULD NOT contain fractional parts.</p>
+        <p>The identifier established by the client.</p>
 
     </div>
 
@@ -19151,7 +19156,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Specifies the version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
+        <p>The version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
 
     </div>
 
@@ -19194,7 +19199,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The result object on success.</p>
+        <p>The result, containing the configured push notification settings.</p>
 
     </div>
 
@@ -19225,6 +19230,8 @@ Numbers SHOULD NOT contain fractional parts.</p>
             <p class="doc doc-class-bases">
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
+
+        <p>Represents a single, stateful operation or conversation between a client and an agent.</p>
 
 
 
@@ -19260,7 +19267,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Collection of artifacts created by the agent.</p>
+        <p>A collection of artifacts generated by the agent during the execution of the task.</p>
 
     </div>
 
@@ -19282,7 +19289,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Server-generated id for contextual alignment across interactions</p>
+        <p>A server-generated identifier for maintaining context across multiple related tasks or interactions.</p>
 
     </div>
 
@@ -19305,6 +19312,8 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
+        <p>An array of messages exchanged during the task, representing the conversation history.</p>
+
     </div>
 
 </div>
@@ -19325,7 +19334,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Unique identifier for the task</p>
+        <p>A unique identifier for the task, generated by the client for a new task or provided by the agent.</p>
 
     </div>
 
@@ -19348,7 +19357,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Event type</p>
+        <p>The type of this object, used as a discriminator. Always 'task' for a Task.</p>
 
     </div>
 
@@ -19371,7 +19380,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Extension metadata.</p>
+        <p>Optional metadata for extensions. The key is an extension-specific identifier.</p>
 
     </div>
 
@@ -19414,7 +19423,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Current status of the task</p>
+        <p>The current status of the task, including its state and a descriptive message.</p>
 
     </div>
 
@@ -19446,7 +19455,8 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Sent by server during sendStream or subscribe requests</p>
+        <p>An event sent by the agent to notify the client that an artifact has been
+generated or updated. This is typically used in streaming models.</p>
 
 
 
@@ -19482,7 +19492,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Indicates if this artifact appends to a previous one</p>
+        <p>If true, the content of this artifact should be appended to a previously sent artifact with the same ID.</p>
 
     </div>
 
@@ -19504,7 +19514,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Generated artifact</p>
+        <p>The artifact that was generated or updated.</p>
 
     </div>
 
@@ -19526,7 +19536,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The context the task is associated with</p>
+        <p>The context ID associated with the task.</p>
 
     </div>
 
@@ -19549,7 +19559,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Event type</p>
+        <p>The type of this event, used as a discriminator. Always 'artifact-update'.</p>
 
     </div>
 
@@ -19572,7 +19582,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Indicates if this is the last chunk of the artifact</p>
+        <p>If true, this is the final chunk of the artifact.</p>
 
     </div>
 
@@ -19595,7 +19605,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Extension metadata.</p>
+        <p>Optional metadata for extensions.</p>
 
     </div>
 
@@ -19638,7 +19648,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Task id</p>
+        <p>The ID of the task this artifact belongs to.</p>
 
     </div>
 
@@ -19670,7 +19680,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Parameters containing only a task ID, used for simple task operations.</p>
+        <p>Defines parameters containing a task ID, used for simple task operations.</p>
 
 
 
@@ -19705,7 +19715,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Task id.</p>
+        <p>The unique identifier of the task.</p>
 
     </div>
 
@@ -19727,6 +19737,8 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
 
     <div class="doc doc-contents ">
+
+        <p>Optional metadata associated with the request.</p>
 
     </div>
 
@@ -19779,7 +19791,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>A2A specific error indicating the task is in a state where it cannot be canceled.</p>
+        <p>An A2A-specific error indicating that the task is in a state where it cannot be canceled.</p>
 
 
 
@@ -19815,7 +19827,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Number that indicates the error type that occurred.</p>
+        <p>The error code for a task that cannot be canceled.</p>
 
     </div>
 
@@ -19838,7 +19850,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Primitive or Structured value that contains additional information about the error.
+        <p>A primitive or structured value containing additional information about the error.
 This may be omitted.</p>
 
     </div>
@@ -19862,7 +19874,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A String providing a short description of the error.</p>
+        <p>The error message.</p>
 
     </div>
 
@@ -19915,7 +19927,7 @@ This may be omitted.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>A2A specific error indicating the requested task ID was not found.</p>
+        <p>An A2A-specific error indicating that the requested task ID was not found.</p>
 
 
 
@@ -19951,7 +19963,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Number that indicates the error type that occurred.</p>
+        <p>The error code for a task not found error.</p>
 
     </div>
 
@@ -19974,7 +19986,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Primitive or Structured value that contains additional information about the error.
+        <p>A primitive or structured value containing additional information about the error.
 This may be omitted.</p>
 
     </div>
@@ -19998,7 +20010,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A String providing a short description of the error.</p>
+        <p>The error message.</p>
 
     </div>
 
@@ -20051,7 +20063,7 @@ This may be omitted.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Parameters for setting or getting push notification configuration for a task</p>
+        <p>A container associating a push notification configuration with a specific task.</p>
 
 
 
@@ -20107,7 +20119,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Push notification configuration.</p>
+        <p>The push notification configuration for this task.</p>
 
     </div>
 
@@ -20129,7 +20141,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Task id.</p>
+        <p>The ID of the task.</p>
 
     </div>
 
@@ -20161,7 +20173,7 @@ This may be omitted.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Parameters for querying a task, including optional history length.</p>
+        <p>Defines parameters for querying a task, with an option to limit history length.</p>
 
 
 
@@ -20197,7 +20209,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Number of recent messages to be retrieved.</p>
+        <p>The number of most recent messages from the task's history to retrieve.</p>
 
     </div>
 
@@ -20219,7 +20231,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Task id.</p>
+        <p>The unique identifier of the task.</p>
 
     </div>
 
@@ -20241,6 +20253,8 @@ This may be omitted.</p>
 
 
     <div class="doc doc-contents ">
+
+        <p>Optional metadata associated with the request.</p>
 
     </div>
 
@@ -20293,7 +20307,7 @@ This may be omitted.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>JSON-RPC request model for the 'tasks/resubscribe' method.</p>
+        <p>Represents a JSON-RPC request for the <code>tasks/resubscribe</code> method, used to resume a streaming connection.</p>
 
 
 
@@ -20328,8 +20342,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>An identifier established by the Client that MUST contain a String, Number.
-Numbers SHOULD NOT contain fractional parts.</p>
+        <p>The identifier for this request.</p>
 
     </div>
 
@@ -20352,7 +20365,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Specifies the version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
+        <p>The version of the JSON-RPC protocol. MUST be exactly "2.0".</p>
 
     </div>
 
@@ -20375,7 +20388,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A String containing the name of the method to be invoked.</p>
+        <p>The method name. Must be 'tasks/resubscribe'.</p>
 
     </div>
 
@@ -20418,7 +20431,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Structured value that holds the parameter values to be used during the invocation of the method.</p>
+        <p>The parameters identifying the task to resubscribe to.</p>
 
     </div>
 
@@ -20450,7 +20463,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="str">str</span></code>, <code><span title="enum.Enum">Enum</span></code></p>
 
 
-        <p>Represents the possible states of a Task.</p>
+        <p>Defines the lifecycle states of a Task.</p>
 
 
 
@@ -20684,7 +20697,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>TaskState and accompanying message.</p>
+        <p>Represents the status of a task at a specific point in time.</p>
 
 
 
@@ -20720,7 +20733,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Additional status updates for client</p>
+        <p>An optional, human-readable message providing more details about the current status.</p>
 
     </div>
 
@@ -20763,6 +20776,8 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
+        <p>The current state of the task's lifecycle.</p>
+
     </div>
 
 </div>
@@ -20784,7 +20799,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>ISO 8601 datetime string when the status was recorded.</p>
+        <p>An ISO 8601 datetime string indicating when this status was recorded.</p>
 
     </div>
 
@@ -20816,7 +20831,8 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Sent by server during sendStream or subscribe requests</p>
+        <p>An event sent by the agent to notify the client of a change in a task's status.
+This is typically used in streaming or subscription models.</p>
 
 
 
@@ -20851,7 +20867,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The context the task is associated with</p>
+        <p>The context ID associated with the task.</p>
 
     </div>
 
@@ -20873,7 +20889,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Indicates the end of the event stream</p>
+        <p>If true, this is the final event in the stream for this interaction.</p>
 
     </div>
 
@@ -20896,7 +20912,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Event type</p>
+        <p>The type of this event, used as a discriminator. Always 'status-update'.</p>
 
     </div>
 
@@ -20919,7 +20935,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Extension metadata.</p>
+        <p>Optional metadata for extensions.</p>
 
     </div>
 
@@ -20962,7 +20978,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Current status of the task</p>
+        <p>The new status of the task.</p>
 
     </div>
 
@@ -20984,7 +21000,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Task id</p>
+        <p>The ID of the task that was updated.</p>
 
     </div>
 
@@ -21016,7 +21032,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>Represents a text segment within parts.</p>
+        <p>Represents a text segment within a message or artifact.</p>
 
 
 
@@ -21052,7 +21068,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Part type - text for TextParts</p>
+        <p>The type of this part, used as a discriminator. Always 'text'.</p>
 
     </div>
 
@@ -21075,7 +21091,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Optional metadata associated with the part.</p>
+        <p>Optional metadata associated with this part.</p>
 
     </div>
 
@@ -21118,7 +21134,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Text content</p>
+        <p>The string content of the text part.</p>
 
     </div>
 
@@ -21150,7 +21166,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
               Bases: <code><span title="a2a._base.A2ABaseModel">A2ABaseModel</span></code></p>
 
 
-        <p>A2A specific error indicating the requested operation is not supported by the agent.</p>
+        <p>An A2A-specific error indicating that the requested operation is not supported by the agent.</p>
 
 
 
@@ -21186,7 +21202,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Number that indicates the error type that occurred.</p>
+        <p>The error code for an unsupported operation.</p>
 
     </div>
 
@@ -21209,7 +21225,7 @@ Numbers SHOULD NOT contain fractional parts.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A Primitive or Structured value that contains additional information about the error.
+        <p>A primitive or structured value containing additional information about the error.
 This may be omitted.</p>
 
     </div>
@@ -21233,7 +21249,7 @@ This may be omitted.</p>
 
     <div class="doc doc-contents ">
 
-        <p>A String providing a short description of the error.</p>
+        <p>The error message.</p>
 
     </div>
 

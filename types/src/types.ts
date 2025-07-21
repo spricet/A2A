@@ -167,7 +167,7 @@ export interface AgentCard {
   /**
    * The agent's own version number. Semantic Versioning MUST be used.
    * @TJS-examples ["1.0.0"]
-   * @pattern ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-\d][0-9a-zA-Z-\d]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-\d][0-9a-zA-Z-\d]*))*))?(?:\+([0-9A-Za-z-\d]+(?:\.[0-9A-Za-z-\d]+)*))?$
+   * @pattern ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
    */
   version: string;
   /**

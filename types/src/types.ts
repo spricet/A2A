@@ -247,7 +247,7 @@ export interface TaskStatus {
   message?: Message;
   /**
    * An ISO 8601 datetime string indicating when this status was recorded.
-   *
+   * @format date-time
    * @TJS-examples ["2023-10-27T10:00:00Z"]
    */
   timestamp?: string;

@@ -4597,6 +4597,7 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-60-38"><a id="__codelineno-60-38" name="__codelineno-60-38" href="#__codelineno-60-38"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-60-39"><a id="__codelineno-60-39" name="__codelineno-60-39" href="#__codelineno-60-39"></a><span class="p">}</span>
 </span></code></pre></div>
+<p><em>If the task were longer-running, the server might initially respond with <code>status.state: "working"</code>. The client would then periodically call <code>tasks/get</code> with params: <code>{"id": "363422be-b0f9-4692-a24d-278670e7c7f1"}</code> until the task reaches a terminal state.</em></p>
 <p><strong>Scenario:</strong> Client asks a simple question, and the agent responds quickly without a task</p>
 <ol>
 <li><strong>Client sends a message using <code>message/send</code>:</strong></li>
@@ -4640,7 +4641,6 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </span><span id="__span-62-15"><a id="__codelineno-62-15" name="__codelineno-62-15" href="#__codelineno-62-15"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-62-16"><a id="__codelineno-62-16" name="__codelineno-62-16" href="#__codelineno-62-16"></a><span class="p">}</span>
 </span></code></pre></div>
-<p><em>If the task were longer-running, the server might initially respond with <code>status.state: "working"</code>. The client would then periodically call <code>tasks/get</code> with <code>params: {"id": "363422be-b0f9-4692-a24d-278670e7c7f1"}</code> until the task reaches a terminal state.</em></p>
 <h3 id="93-streaming-task-execution-sse">9.3. Streaming Task Execution (SSE)<a class="headerlink" href="#93-streaming-task-execution-sse" title="Permanent link">&para;</a></h3>
 <p><strong>Scenario:</strong> Client asks the agent to write a long paper describing an attached picture.</p>
 <ol>

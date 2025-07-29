@@ -44,10 +44,7 @@ export interface AgentCapabilities {
  * @TJS-examples [{"uri": "https://developers.google.com/identity/protocols/oauth2", "description": "Google OAuth 2.0 authentication", "required": false}]
  */
 export interface AgentExtension {
-  /**
-   * The unique URI identifying the extension.
-   * @format uri
-   */
+  /** The unique URI identifying the extension. */
   uri: string;
   /** A human-readable description of how this agent uses the extension. */
   description?: string;
@@ -142,7 +139,6 @@ export interface OpenIdConnectSecurityScheme extends SecuritySchemeBase {
   /**
    * The OpenID Connect Discovery URL for the OIDC provider's metadata.
    * @see {@link https://openid.net/specs/openid-connect-discovery-1_0.html}
-   * @format uri
    */
   openIdConnectUrl: string;
 }
@@ -172,19 +168,16 @@ export interface AuthorizationCodeOAuthFlow {
   /**
    * The authorization URL to be used for this flow.
    * This MUST be a URL and use TLS.
-   * @format uri
    */
   authorizationUrl: string;
   /**
    * The token URL to be used for this flow.
    * This MUST be a URL and use TLS.
-   * @format uri
    */
   tokenUrl: string;
   /**
    * The URL to be used for obtaining refresh tokens.
    * This MUST be a URL and use TLS.
-   * @format uri
    */
   refreshUrl?: string;
   /**
@@ -202,12 +195,10 @@ export interface AuthorizationCodeOAuthFlow {
 export interface ClientCredentialsOAuthFlow {
   /**
    * The token URL to be used for this flow. This MUST be a URL.
-   * @format uri
    */
   tokenUrl: string;
   /**
    * The URL to be used for obtaining refresh tokens. This MUST be a URL.
-   * @format uri
    */
   refreshUrl?: string;
   /**
@@ -225,12 +216,10 @@ export interface ClientCredentialsOAuthFlow {
 export interface ImplicitOAuthFlow {
   /**
    * The authorization URL to be used for this flow. This MUST be a URL.
-   * @format uri
    */
   authorizationUrl: string;
   /**
    * The URL to be used for obtaining refresh tokens. This MUST be a URL.
-   * @format uri
    */
   refreshUrl?: string;
   /**
@@ -248,12 +237,10 @@ export interface ImplicitOAuthFlow {
 export interface PasswordOAuthFlow {
   /**
    * The token URL to be used for this flow. This MUST be a URL.
-   * @format uri
    */
   tokenUrl: string;
   /**
    * The URL to be used for obtaining refresh tokens. This MUST be a URL.
-   * @format uri
    */
   refreshUrl?: string;
   /**
@@ -282,7 +269,6 @@ export interface AgentSkill {
    * A set of keywords describing the skill's capabilities.
    *
    * @TJS-examples [["cooking", "customer support", "billing"]]
-   * @minItems 1
    */
   tags: string[];
   /**
@@ -322,8 +308,6 @@ export enum TransportProtocol {
 export interface AgentInterface {
   /**
    * The URL where this interface is available. Must be a valid absolute HTTPS URL in production.
-   *
-   * @format uri
    * @TJS-examples ["https://api.example.com/a2a/v1", "https://grpc.example.com/a2a", "https://rest.example.com/v1"]
    */
   url: string;
@@ -383,7 +367,6 @@ export interface AgentCard {
    * The preferred endpoint URL for interacting with the agent.
    * This URL MUST support the transport specified by 'preferredTransport'.
    *
-   * @format uri
    * @TJS-examples ["https://api.example.com/a2a/v1"]
    */
   url: string;
@@ -413,23 +396,17 @@ export interface AgentCard {
    * and preferences. This enables transport negotiation and fallback scenarios.
    */
   additionalInterfaces?: AgentInterface[];
-  /**
-   * An optional URL to an icon for the agent.
-   * @format uri
-   */
+  /** An optional URL to an icon for the agent. */
   iconUrl?: string;
   /** Information about the agent's service provider. */
   provider?: AgentProvider;
   /**
-   * The agent's own version number. Semantic Versioning MUST be used.
+   * The agent's own version number. The format is defined by the provider.
+   *
    * @TJS-examples ["1.0.0"]
-   * @pattern ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
    */
   version: string;
-  /**
-   * An optional URL to the agent's documentation.
-   * @format uri
-   */
+  /** An optional URL to the agent's documentation. */
   documentationUrl?: string;
   /** A declaration of optional capabilities supported by the agent. */
   capabilities: AgentCapabilities;
@@ -446,19 +423,14 @@ export interface AgentCard {
   /**
    * Default set of supported input MIME types for all skills, which can be
    * overridden on a per-skill basis.
-   * @minItems 1
    */
   defaultInputModes: string[];
   /**
    * Default set of supported output MIME types for all skills, which can be
    * overridden on a per-skill basis.
-   * @minItems 1
    */
   defaultOutputModes: string[];
-  /**
-   * The set of skills, or distinct capabilities, that the agent can perform.
-   * @minItems 1
-   */
+  /** The set of skills, or distinct capabilities, that the agent can perform. */
   skills: AgentSkill[];
   /**
    * If true, the agent can provide an extended agent card with additional details
@@ -681,19 +653,13 @@ export interface Artifact {
   name?: string;
   /** An optional, human-readable description of the artifact. */
   description?: string;
-  /**
-   * An array of content parts that make up the artifact.
-   * @minItems 1
-   */
+  /** An array of content parts that make up the artifact. */
   parts: Part[];
   /** Optional metadata for extensions. The key is an extension-specific identifier. */
   metadata?: {
     [key: string]: any;
   };
-  /**
-   * The URIs of extensions that are relevant to this artifact.
-   * @format uri
-   */
+  /** The URIs of extensions that are relevant to this artifact. */
   extensions?: string[];
 }
 // --8<-- [end:Artifact]
@@ -708,17 +674,13 @@ export interface Message {
   /**
    * An array of content parts that form the message body. A message can be
    * composed of multiple parts of different types (e.g., text and files).
-   * @minItems 1
    */
   parts: Part[];
   /** Optional metadata for extensions. The key is an extension-specific identifier. */
   metadata?: {
     [key: string]: any;
   };
-  /**
-   * The URIs of extensions that are relevant to this message.
-   * @format uri
-   */
+  /** The URIs of extensions that are relevant to this message. */
   extensions?: string[];
   /** A list of other task IDs that this message references for additional context. */
   referenceTaskIds?: string[];
@@ -786,10 +748,7 @@ export interface FileWithBytes extends FileBase {
  * Represents a file with its content located at a specific URI.
  */
 export interface FileWithUri extends FileBase {
-  /**
-   * A URL pointing to the file's content.
-   * @format uri
-   */
+  /** A URL pointing to the file's content. */
   uri: string;
   /** The `bytes` property must be absent when `uri` is present. */
   bytes?: never;
@@ -836,10 +795,7 @@ export type Part = TextPart | FilePart | DataPart;
  * Defines authentication details for a push notification endpoint.
  */
 export interface PushNotificationAuthenticationInfo {
-  /**
-   * A list of supported authentication schemes (e.g., 'Basic', 'Bearer').
-   * @minItems 1
-   */
+  /** A list of supported authentication schemes (e.g., 'Basic', 'Bearer'). */
   schemes: string[];
   /** Optional credentials required by the push notification endpoint. */
   credentials?: string;
@@ -856,10 +812,7 @@ export interface PushNotificationConfig {
    * to support multiple notification callbacks.
    */
   id?: string;
-  /**
-   * The callback URL where the agent should send push notifications.
-   * @format uri
-   */
+  /** The callback URL where the agent should send push notifications. */
   url: string;
   /** A unique token for this task or session to validate incoming push notifications. */
   token?: string;
@@ -1502,8 +1455,7 @@ export interface InvalidAgentResponseError extends JSONRPCError {
 
 // --8<-- [start:AuthenticatedExtendedCardNotConfiguredError]
 /**
- * An A2A-specific error indicating that the agent does not have an
- * Authenticated Extended Card configured
+ * An A2A-specific error indicating that the agent does not have an Authenticated Extended Card configured
  */
 export interface AuthenticatedExtendedCardNotConfiguredError
   extends JSONRPCError {

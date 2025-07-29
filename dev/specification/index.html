@@ -1764,35 +1764,11 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#710-agentauthenticatedextendedcard" class="md-nav__link">
+  <a href="#710-agentgetauthenticatedextendedcard" class="md-nav__link">
     <span class="md-ellipsis">
-      7.10. agent/authenticatedExtendedCard
+      7.10. agent/getAuthenticatedExtendedCard
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="7.10. agent/authenticatedExtendedCard">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#7101-authenticatedextendedcardparams-object" class="md-nav__link">
-    <span class="md-ellipsis">
-      7.10.1. AuthenticatedExtendedCardParams Object
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7102-authenticatedextendedcardresponse-object" class="md-nav__link">
-    <span class="md-ellipsis">
-      7.10.2. AuthenticatedExtendedCardResponse Object
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -3441,35 +3417,11 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#710-agentauthenticatedextendedcard" class="md-nav__link">
+  <a href="#710-agentgetauthenticatedextendedcard" class="md-nav__link">
     <span class="md-ellipsis">
-      7.10. agent/authenticatedExtendedCard
+      7.10. agent/getAuthenticatedExtendedCard
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="7.10. agent/authenticatedExtendedCard">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#7101-authenticatedextendedcardparams-object" class="md-nav__link">
-    <span class="md-ellipsis">
-      7.10.1. AuthenticatedExtendedCardParams Object
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7102-authenticatedextendedcardresponse-object" class="md-nav__link">
-    <span class="md-ellipsis">
-      7.10.2. AuthenticatedExtendedCardResponse Object
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -5301,19 +5253,13 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </div>
 </div>
 </div>
-<h3 id="710-agentauthenticatedextendedcard">7.10. <code>agent/authenticatedExtendedCard</code><a class="headerlink" href="#710-agentauthenticatedextendedcard" title="Permanent link">&para;</a></h3>
+<h3 id="710-agentgetauthenticatedextendedcard">7.10. <code>agent/getAuthenticatedExtendedCard</code><a class="headerlink" href="#710-agentgetauthenticatedextendedcard" title="Permanent link">&para;</a></h3>
 <p>Retrieves a potentially more detailed version of the Agent Card after the client has authenticated. This endpoint is available only if <code>AgentCard.supportsAuthenticatedExtendedCard</code> is <code>true</code>.</p>
 <ul>
-<li><strong>Endpoint URL</strong>: <code>{AgentCard.url}/../agent/authenticatedExtendedCard</code> (relative to the base URL specified in the public Agent Card).</li>
-<li><strong>HTTP Method</strong>: <code>GET</code></li>
 <li><strong>Authentication</strong>: The client <strong>MUST</strong> authenticate the request using one of the schemes declared in the public <code>AgentCard.securitySchemes</code> and <code>AgentCard.security</code> fields.</li>
-<li><strong>Request <code>params</code></strong>: None (HTTP GET request).</li>
 <li><strong>Response <code>result</code> type (on success)</strong>: <code>AgentCard</code> (A complete Agent Card object, which may contain additional details or skills not present in the public card).</li>
 <li><strong>Response <code>error</code> type (on failure)</strong>: Standard HTTP error codes.<ul>
 <li><code>401 Unauthorized</code>: Authentication failed (missing or invalid credentials). The server <strong>SHOULD</strong> include a <code>WWW-Authenticate</code> header.</li>
-<li><code>403 Forbidden</code>: Authentication succeeded, but the client/user is not authorized to access the extended card.</li>
-<li><code>404 Not Found</code>: The <code>supportsAuthenticatedExtendedCard</code> capability is declared, but the server has not implemented this endpoint at the specified path.</li>
-<li><code>5xx Server Error</code>: An internal server error occurred.</li>
 </ul>
 </li>
 </ul>
@@ -5322,7 +5268,7 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
-<li><strong>URL:</strong> <code>agent/authenticatedExtendedCard</code></li>
+<li><strong>URL:</strong> <code>agent/getAuthenticatedExtendedCard</code></li>
 <li><strong>HTTP Method:</strong> <code>POST</code></li>
 <li><strong>Payload:</strong> None</li>
 <li><strong>Response:</strong> <code>AgentCard</code></li>
@@ -5348,11 +5294,14 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 </div>
 </div>
 <p>Clients retrieving this authenticated card <strong>SHOULD</strong> replace their cached public Agent Card with the content received from this endpoint for the duration of their authenticated session or until the card's version changes.</p>
-<h4 id="7101-authenticatedextendedcardparams-object">7.10.1. <code>AuthenticatedExtendedCardParams</code> Object<a class="headerlink" href="#7101-authenticatedextendedcardparams-object" title="Permanent link">&para;</a></h4>
-<p>This endpoint does not use JSON-RPC <code>params</code>. Any parameters would be included as HTTP query parameters if needed (though none are defined by the standard).</p>
-<h4 id="7102-authenticatedextendedcardresponse-object">7.10.2. <code>AuthenticatedExtendedCardResponse</code> Object<a class="headerlink" href="#7102-authenticatedextendedcardresponse-object" title="Permanent link">&para;</a></h4>
-<p>The successful response body is a JSON object conforming to the <code>AgentCard</code> interface.</p>
-<div class="language-ts no-copy highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>
+<div class="language-ts no-copy highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="cm">/**</span>
+</span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="cm"> * Represents a successful JSON-RPC response for the `agent/getAuthenticatedExtendedCard` method.</span>
+</span><span id="__span-57-3"><a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="cm"> */</span>
+</span><span id="__span-57-4"><a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a><span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">GetAuthenticatedExtendedCardSuccessResponse</span>
+</span><span id="__span-57-5"><a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a><span class="w">  </span><span class="k">extends</span><span class="w"> </span><span class="nx">JSONRPCSuccessResponse</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-57-6"><a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a><span class="w">  </span><span class="cm">/** The result is an Agent Card object. */</span>
+</span><span id="__span-57-7"><a id="__codelineno-57-7" name="__codelineno-57-7" href="#__codelineno-57-7"></a><span class="w">  </span><span class="nx">result</span><span class="o">:</span><span class="w"> </span><span class="kt">AgentCard</span><span class="p">;</span>
+</span><span id="__span-57-8"><a id="__codelineno-57-8" name="__codelineno-57-8" href="#__codelineno-57-8"></a><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="8-error-handling">8. Error Handling<a class="headerlink" href="#8-error-handling" title="Permanent link">&para;</a></h2>
 <p>A2A uses standard <a href="https://www.jsonrpc.org/specification#error_object">JSON-RPC 2.0 error codes and structure</a> for reporting errors. Errors are returned in the <code>error</code> member of the <code>JSONRPCErrorResponse</code> object. See <a href="#612-jsonrpcerror-object"><code>JSONRPCError</code> Object definition</a>.</p>
@@ -5454,6 +5403,12 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 <td style="text-align: left;">Invalid agent response type</td>
 <td style="text-align: left;">Agent generated an invalid response for the requested method</td>
 </tr>
+<tr>
+<td style="text-align: left;"><code>-32007</code></td>
+<td style="text-align: left;"><code>AuthenticatedExtendedCardNotConfiguredError</code></td>
+<td style="text-align: left;">Authenticated Extended Card not configured</td>
+<td style="text-align: left;">The agent does not have an Authenticated Extended Card configured.</td>
+</tr>
 </tbody>
 </table>
 <p>Servers MAY define additional error codes within the <code>-32000</code> to <code>-32099</code> range for more specific scenarios not covered above, but they <strong>SHOULD</strong> document these clearly. The <code>data</code> field of the <code>JSONRPCError</code> object can be used to provide more structured details for any error.</p>
@@ -5475,18 +5430,21 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 <p><strong>Client obtains necessary credentials out-of-band (e.g., performs OAuth 2.0 flow with Google, resulting in an access token).</strong></p>
 </li>
 <li>
-<p><strong>Client fetches the authenticated extended Agent Card:</strong></p>
+<p><strong>Client fetches the authenticated extended Agent Card using <code>agent/getAuthenticatedExtendedCard</code> request:</strong></p>
 </li>
 </ol>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>GET https://example.com/a2a/agent/authenticatedExtendedCard
-</span><span id="__span-59-2"><a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a>Authorization: Bearer &lt;obtained_access_token&gt;
+<div class="language-json highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="p">{</span>
+</span><span id="__span-59-2"><a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a><span class="w">  </span><span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+</span><span id="__span-59-3"><a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-59-4"><a id="__codelineno-59-4" name="__codelineno-59-4" href="#__codelineno-59-4"></a><span class="w">  </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;agent/getAuthenticatedExtendedCard&quot;</span>
+</span><span id="__span-59-5"><a id="__codelineno-59-5" name="__codelineno-59-5" href="#__codelineno-59-5"></a><span class="p">}</span>
 </span></code></pre></div>
 <ol>
 <li>
 <p><strong>Server authenticates and authorizes the request.</strong></p>
 </li>
 <li>
-<p><strong>Server responds with the full Agent Card:</strong></p>
+<p><strong>Server responds with the full Agent Card as the JSON-RPC result:</strong></p>
 </li>
 </ol>
 <h3 id="92-basic-execution-synchronous-polling-style">9.2. Basic Execution (Synchronous / Polling Style)<a class="headerlink" href="#92-basic-execution-synchronous-polling-style" title="Permanent link">&para;</a></h3>

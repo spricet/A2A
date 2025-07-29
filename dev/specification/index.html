@@ -4019,7 +4019,7 @@
 </ul>
 <h3 id="53-recommended-location">5.3. Recommended Location<a class="headerlink" href="#53-recommended-location" title="Permanent link">&para;</a></h3>
 <p>If using the well-known URI strategy, the recommended location for an agent's Agent Card is:
-<code>https://{server_domain}/.well-known/agent.json</code>
+<code>https://{server_domain}/.well-known/agent-card.json</code>
 This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rfc8615">RFC 8615</a> for well-known URIs.</p>
 <h3 id="54-security-of-agent-cards">5.4. Security of Agent Cards<a class="headerlink" href="#54-security-of-agent-cards" title="Permanent link">&para;</a></h3>
 <p>Agent Cards themselves might contain information that is considered sensitive.</p>
@@ -5419,7 +5419,7 @@ This follows the principles of <a href="https://datatracker.ietf.org/doc/html/rf
 <ol>
 <li><strong>Client fetches the public Agent Card:</strong></li>
 </ol>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>GET https://example.com/.well-known/agent.json
+<div class="language-text highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>GET https://example.com/.well-known/agent-card.json
 </span></code></pre></div>
 <p><em>Server responds with the public Agent Card (like the example in Section 5.6), including <code>supportsAuthenticatedExtendedCard: true</code> (at the root level) and <code>securitySchemes</code>.</em></p>
 <ol>

@@ -1396,10 +1396,10 @@
 <p>This is a recommended approach for public agents or agents intended for broad discoverability within a specific domain.</p>
 <ul>
 <li><strong>Mechanism:</strong> A2A Servers host their Agent Card at a standardized, "well-known" path on their domain.</li>
-<li><strong>Standard Path:</strong> <code>https://{agent-server-domain}/.well-known/agent.json</code> (following the principles of <a href="https://www.ietf.org/rfc/rfc8615.txt">RFC 8615</a> for well-known URIs).</li>
+<li><strong>Standard Path:</strong> <code>https://{agent-server-domain}/.well-known/agent-card.json</code> (following the principles of <a href="https://www.ietf.org/rfc/rfc8615.txt">RFC 8615</a> for well-known URIs).</li>
 <li><strong>Process:</strong><ol>
 <li>A client agent knows or programmatically discovers the domain of a potential A2A Server (e.g., <code>smart-thermostat.example.com</code>).</li>
-<li>The client performs an HTTP <code>GET</code> request to <code>https://smart-thermostat.example.com/.well-known/agent.json</code>.</li>
+<li>The client performs an HTTP <code>GET</code> request to <code>https://smart-thermostat.example.com/.well-known/agent-card.json</code>.</li>
 <li>If the Agent Card exists and is accessible, the server returns it as a JSON response.</li>
 </ol>
 </li>
@@ -1442,7 +1442,7 @@
 </ul>
 <p><strong>Protection Mechanisms:</strong></p>
 <ul>
-<li><strong>Access Control on the Endpoint:</strong> The HTTP endpoint serving the Agent Card (whether it's the <code>/.well-known/agent.json</code> path, a registry API, or a custom URL) should be secured using standard web practices if the card is not intended for public, unauthenticated access.<ul>
+<li><strong>Access Control on the Endpoint:</strong> The HTTP endpoint serving the Agent Card (whether it's the <code>/.well-known/agent-card.json</code> path, a registry API, or a custom URL) should be secured using standard web practices if the card is not intended for public, unauthenticated access.<ul>
 <li><strong>mTLS:</strong> Require mutual TLS for client authentication if appropriate for the trust model.</li>
 <li><strong>Network Restrictions:</strong> Limit access to specific IP ranges, VPCs, or private networks.</li>
 <li><strong>Authentication:</strong> Require standard HTTP authentication (e.g., OAuth 2.0 Bearer token, API Key) to access the Agent Card itself.</li>

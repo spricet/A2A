@@ -1649,7 +1649,8 @@
                 "referenceTaskIds": {
                     "description": "A list of other task IDs that this message references for additional context.",
                     "items": {
-                        "format": "uuid"
+                        "format": "uuid",
+                        "type": "string"
                     },
                     "type": "array"
                 },

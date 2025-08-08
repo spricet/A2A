@@ -741,7 +741,7 @@ export interface Message {
   extensions?: string[];
   /**
    * A list of other task IDs that this message references for additional context.
-   * Each string in the array should be a UUID.
+   * @items.format uuid
    */
   referenceTaskIds?: string[];
   /**

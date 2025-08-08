@@ -1647,9 +1647,9 @@
                     "type": "array"
                 },
                 "referenceTaskIds": {
-                    "description": "A list of other task IDs that this message references for additional context.\nEach string in the array should be a UUID.",
+                    "description": "A list of other task IDs that this message references for additional context.",
                     "items": {
-                        "type": "string"
+                        "format": "uuid"
                     },
                     "type": "array"
                 },

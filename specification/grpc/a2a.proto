@@ -484,7 +484,6 @@ message AgentCardSignature {
   google.protobuf.Struct header = 3;
 }
 
-// protolint:disable MAX_LINE_LENGTH
 message TaskPushNotificationConfig {
   // The resource name of the config.
   // Format: tasks/{task_id}/pushNotificationConfigs/{config_id}
@@ -492,7 +491,6 @@ message TaskPushNotificationConfig {
   // The push notification configuration details.
   PushNotificationConfig push_notification_config = 2;
 }
-// protolint:enable MAX_LINE_LENGTH
 
 // protolint:disable REPEATED_FIELD_NAMES_PLURALIZED
 message StringList {
@@ -631,7 +629,6 @@ message SendMessageRequest {
   google.protobuf.Struct metadata = 3;
 }
 
-// protolint:disable MAX_LINE_LENGTH
 message GetTaskRequest {
   // The resource name of the task.
   // Format: tasks/{task_id}
@@ -694,7 +691,6 @@ message ListTaskPushNotificationConfigRequest {
   // the page token.
   string page_token = 3;
 }
-// protolint:enable MAX_LINE_LENGTH
 
 message GetAgentCardRequest {
   // Empty. Added to fix linter violation.

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/a2aproject/A2A/compare/v0.3.0...v0.3.1) (2025-08-13)
+
+
+### Bug Fixes
+
+* Add name field to FilePart protobuf message ([#983](https://github.com/a2aproject/A2A/issues/983)) ([2b7cb6f](https://github.com/a2aproject/A2A/commit/2b7cb6f8408e6324c48fb82c71839c67a18f1fab)), closes [#984](https://github.com/a2aproject/A2A/issues/984)
+
 ## [0.3.0](https://github.com/a2aproject/A2A/compare/v0.2.6...v0.3.0) (2025-07-30)
 
 

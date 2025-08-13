@@ -2372,7 +2372,7 @@
                     "description": "The push notification configuration for this task."
                 },
                 "taskId": {
-                    "description": "The unique identifier (UUID) of the task.",
+                    "description": "The unique identifier (e.g. UUID) of the task.",
                     "type": "string"
                 }
             },

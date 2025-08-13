@@ -357,6 +357,8 @@ message AgentCard {
   // Announcement of additional supported transports. Client can use any of
   // the supported transports.
   repeated AgentInterface additional_interfaces = 15;
+  // An optional URL to an icon for the agent. 
+  string icon_url = 18;
   // The service provider of the agent.
   AgentProvider provider = 4;
   // The version of the agent.

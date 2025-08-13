@@ -880,7 +880,7 @@ export interface PushNotificationConfig {
  */
 export interface TaskPushNotificationConfig {
   /**
-   * The unique identifier (UUID) of the task.
+   * The unique identifier (e.g. UUID) of the task.
    */
   taskId: string;
   /** The push notification configuration for this task. */

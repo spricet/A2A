@@ -401,7 +401,7 @@ message AgentCard {
   bool supports_authenticated_extended_card = 13;
   // JSON Web Signatures computed for this AgentCard.
   repeated AgentCardSignature signatures = 17;
-  // An optional URL to an icon for the agent. 
+  // An optional URL to an icon for the agent.
   string icon_url = 18;
 }
 
